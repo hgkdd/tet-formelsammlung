@@ -1,5 +1,5 @@
-# tet-formelsammlung
-Formelsammlung für Theoretische Elektrotechnik
+# TET Formelsammlung
+## Formelsammlung für Theoretische Elektrotechnik
 
 Dies wird die zukünftige Formelsammlung für TET an der TU Dresden.
 
