@@ -10,6 +10,7 @@ Wenn Sie eine Änderung vorschlagen wollen erstellen Sie bitte zunächst einen F
 Bitte beachten Sie die Definitionen in newcommands.tex um die Datei übersichtlich zu halten.
 
 Besten Dank
-Prof. Hans Georg Krauthäuser
-Professur für Theoretische Elektrotechnik und EMV
+
+Prof. Hans Georg Krauthäuser<br>
+Professur für Theoretische Elektrotechnik und EMV<br>
 TU Dresden
