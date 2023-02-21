@@ -1,0 +1,194 @@
+\documentclass[fontsize=8pt]{scrartcl}
+\usepackage[landscape]{geometry}
+\usepackage{upgreek}
+\usepackage{url}
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{esint}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathmorphing}
+\usepackage{amsmath,amssymb}
+\usepackage{xstring}		% Für Stringvergleiche und weiteres
+
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{mathtools}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\makeatletter
+
+\newcommand*\bigcdot{\mathpalette\bigcdot@{.5}}
+\newcommand*\bigcdot@[2]{\mathbin{\vcenter{\hbox{\scalebox{#2}{$\m@th#1\bullet$}}}}}
+\input{newcommands}	% Befehle für das Dokument, bitte nicht vergessen diese auch in die newcommandlist einzutragen
+\makeatother
+
+
+
+
+
+
+\title{TET Formelsammlung}
+\usepackage[german]{babel}
+\usepackage[utf8]{inputenc}
+
+\advance\topmargin-.8in
+\advance\textheight3in
+\advance\textwidth3in
+\advance\oddsidemargin-1.5in
+\advance\evensidemargin-1.5in
+\parindent0pt
+\parskip2pt
+\newcommand{\hr}{\centerline{\rule{3.5in}{1pt}}}
+%\colorbox[HTML]{e4e4e4}{\makebox[\textwidth-2\fboxsep][l]{texto}
+\begin{document}
+
+\begin{center}{\huge{\textbf{TET Formelsammlung}}}\\
+\end{center}
+\begin{multicols*}{3}
+
+\tikzstyle{allgbox} = [draw=black, fill=white, very thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=10pt]
+\tikzstyle{allgtitle} =[fill=black, text=white, font=\bfseries]
+
+\tikzstyle{estatbox} = [draw=purple, fill=white, very thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=10pt]
+\tikzstyle{estattitle} =[fill=purple, text=white, font=\bfseries]
+
+
+
+%------------ Maxwell Gleichungen ---------------
+\begin{tikzpicture}
+\node [allgbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    \begin{align*}
+     \rotation \efeld[v] = -\dfrac{\partial \magflussd[v]}{\partial t} 
+		&\stackrel{\text{Stokes}}{\to}	\oint\limits_{\rand(\flaeche)} \efeld[v]
+                   \cdot \intweg[v] = -\dfrac{\upd}{\upd t}
+                   \iint\limits_{\flaeche} \magflussd[v] \cdot \intflaeche[v]\\
+	 \rotation \magfeld[v] = \elstromdichte[v] +\dfrac{\partial \verschiebung[v]}{\partial t} 
+		&\stackrel{\text{Stokes}}{\to}	\oint\limits_{\rand(\flaeche)} \magfeld[v]
+                   \cdot \intweg[v] = \iint\limits_{\flaeche}
+                   \elstromdichte[v] \cdot \intflaeche[v] + \dfrac{\upd}{\upd t}
+                   \iint\limits_{\flaeche} \verschiebung[v] \cdot \intflaeche[v]\\
+	 \divergenz \magflussd[v] = 0
+		&\stackrel{\text{Gauss}}{\to}	\oiint\limits_{\oberfl(\volumen)} \magflussd[v]\cdot \intflaeche[v] = 0\\
+	 \divergenz \verschiebung[v] = \laddichte{V}
+		&\stackrel{\text{Gauss}}{\to}	\oiint\limits_{\oberfl(\volumen)}
+                   \verschiebung[v]\cdot \intflaeche[v] =
+                   \iiint\limits_{\volumen} \laddichte{V} \intvolumen 
+\end{align*}
+      \end{minipage}
+};
+%------------ Maxwell Header ---------------------
+\node[allgtitle, right=10pt] at (box.north west) {Maxwell Gleichungen};
+\end{tikzpicture}
+
+%------------ Material Gleichungen ---------------
+\begin{tikzpicture}
+\node [allgbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    \begin{align*}
+     \verschiebung[v] = \varepsilon_0 \efeld[v] + \vec{P} 
+		&\quad\stackrel{\text{hli}}{\to}\quad	\verschiebung[v] = \varepsilon \efeld[v]\\
+     \magflussd[v] = \mu_0 \left(\magfeld[v] + \vec{M}\right) 
+		&\quad\stackrel{\text{hli}}{\to}\quad	\magflussd[v] = \mu \magfeld[v]
+\end{align*}
+      \end{minipage}
+};
+%------------ Material Header ---------------------
+\node[allgtitle, right=10pt] at (box.north west) {Material Gleichungen};
+\end{tikzpicture}
+
+
+%------------ Kontinuitätsgleichung ---------------
+\begin{tikzpicture}
+\node [allgbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    \begin{align*}
+      \divergenz \elstromdichte[v] = -\dfrac{\partial \laddichte{V}}{\partial t}
+&\quad\stackrel{\text{Gauss}}{\to}\quad	\oiint\limits_{\oberfl(\volumen)} \elstromdichte[v] \cdot \intflaeche[v] = -\iiint\limits_{\volumen} \dfrac{\partial \laddichte{V}}{\partial t} \intvolumen
+\end{align*}
+      \end{minipage}
+};
+%------------ Kontinuitätsgleichung Header ---------------------
+\node[allgtitle, right=10pt] at (box.north west) {Kontinuitätsgleichung};
+\end{tikzpicture}
+
+%------------ Stetigkeitsbedingungen ---------------
+\begin{tikzpicture}
+\node [allgbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+Für Normalenvektor \(\vec{n}\) von \circled{1} nach \circled{2}:
+    \begin{align*}
+      \vec{n} \times \left(\efeld[v]_2 - \efeld[v]_1 \right) &=\vec{0} \\
+      \vec{n} \cdot \left(\verschiebung[v]_2 - \verschiebung[v]_1 \right) &=\laddichte{F} \\
+      \vec{n} \times \left(\magfeld[v]_2 - \magfeld[v]_1 \right) &=\elstromdichte[v]_{A} \\
+      \vec{n} \cdot \left(\magflussd[v]_2 - \magflussd[v]_1 \right) &=0 
+    \end{align*}
+      \end{minipage}
+    };
+
+	% Medien und ihre Kennwerte
+	\draw (-3.4,1) node [anchor=north east] {\circled{1}};
+	\draw (-2.6,1) node [anchor = north west] {\circled{2}};
+	% Mittelachse
+	\draw (-3,1) -- (-3,-1);
+	% die Normalen
+	\draw [->] (-3,0) -- (-2.6,0) node [anchor= west] {$ \normalenvektor $};
+
+    
+%------------ Stetigkeitsbedingiungen Header ---------------------
+\node[allgtitle, right=10pt] at (box.north west) {Stetigkeitsbedingungen};
+\end{tikzpicture}
+
+%------------ El. Skalarpotential ---------------
+\begin{tikzpicture}
+\node [estatbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    \begin{align*}
+      \rotation \efeld[v] = \vec{0} &\to \efeld[v] = -\gradient
+                                      \elpotential \\
+ & \laplace \elpotential = - \frac{1}{\varepsilon}\laddichte{V} \text{ Poisson-Gleichung}
+\end{align*}
+      \end{minipage}
+};
+%------------ Skalarpotential Header ---------------------
+\node[estattitle, right=10pt] at (box.north west) {Elektrisches Skalarpotential};
+\end{tikzpicture}
+
+
+%------------ Coulomb-Integral ---------------
+\begin{tikzpicture}
+\node [estatbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+$$
+\elpotential(\ortsvektor[v]) = \frac{1}{4\pi \varepsilon}
+          \iiint_V
+          \frac{\laddichte{V}(\ortsvektor[vs])}{\left|\ortsvektor[v]-\ortsvektor[vs]\right|} \upd^3\ortsvektor[s]
+          $$
+      \end{minipage}
+};
+%------------ Coulomb-Gauss-Integral Header ---------------------
+\node[estattitle, right=10pt] at (box.north west) {Coulomb-Integral};
+\end{tikzpicture}
+
+\columnbreak
+
+%------------ Spannung ---------------
+\begin{tikzpicture}
+\node [estatbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+$
+ \rotation\efeld[v] = \vec{0} \to  U_{21} = \elpotential_2 - \elpotential_1 =  \int\limits_{\ortsvektor[v]_2}^{\ortsvektor[v]_1}
+    \efeld[v]\cdot \upd \vec{s}   $ \text{ wegunabhängig}
+      \end{minipage}
+};
+%------------ Spannung Header ---------------------
+\node[estattitle, right=10pt] at (box.north west) {Spannung};
+\end{tikzpicture}
+
+
+
+\end{multicols*}
+\end{document}
