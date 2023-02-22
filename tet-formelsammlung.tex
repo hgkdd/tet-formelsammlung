@@ -180,12 +180,75 @@ $$
 \node [estatbox] (box){%
   \begin{minipage}{0.3\textwidth}
 $
- \rotation\efeld[v] = \vec{0} \to  U_{21} = \elpotential_2 - \elpotential_1 =  \int\limits_{\ortsvektor[v]_2}^{\ortsvektor[v]_1}
+ \rotation\efeld[v] = \vec{0} \to  U_{21} = \elpotential(\ortsvektor[v]_2) - \elpotential(\ortsvektor[v]_1) =  \int\limits_{\ortsvektor[v]_2}^{\ortsvektor[v]_1}
     \efeld[v]\cdot \upd \vec{s}   $ \text{ wegunabhängig}
       \end{minipage}
 };
 %------------ Spannung Header ---------------------
-\node[estattitle, right=10pt] at (box.north west) {Spannung};
+\node[estattitle, right=10pt] at (box.north west) {Spannung an $\ortsvektor[v]_2$ bezogen auf $\ortsvektor[v]_1$};
+\end{tikzpicture}
+
+
+%------------ Kraft Arbeit Energie ---------------
+\begin{tikzpicture}
+\node [estatbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $
+    \kraft[v] = q \efeld[v] \quad A = q \int\limits_{\ortsvektor[v]_2}^{\ortsvektor[v]_1}
+    \efeld[v]\cdot \upd \vec{s} = q \left[\elpotential(\ortsvektor[v]_2) - \elpotential(\ortsvektor[v]_1)\right] = q  U_{21} $\\
+    $\elergiedichte = \frac{1}{2} \efeld[v] \cdot \verschiebung[v] \quad \elenergie = \frac{1}{2} \iiint\limits_V \efeld[v] \cdot \verschiebung[v] \, \upd V$
+\end{minipage}
+};
+%------------ Kraft Arbeit Energie Header ---------------------
+\node[estattitle, right=10pt] at (box.north west) {Kraft auf $q$, Arbeit $\ortsvektor[v]_1\to \ortsvektor[v]_2$ , Energie};
+\end{tikzpicture}
+
+%------------ Dipol, Diploldichte ---------------
+\begin{tikzpicture}
+\node [estatbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $
+    \elpotential_D(\ortsvektor[v]) = \durchvierpie \frac{\dipolmoment[v] \cdot (\ortsvektor[v] - \ortsvektor[vs])}{\abs{\ortsvektor[v] - \ortsvektor[vs]}^3} $\\
+    $\efeld[v]_D (\ortsvektor[v])= \durchvierpie \left[ \frac{3\left[\dipolmoment[v] \cdot (\ortsvektor[v] - \ortsvektor[vs]) \right] (\ortsvektor[v] - \ortsvektor[vs])}{\abs{\ortsvektor[v] - \ortsvektor[vs]}^5} - \frac{\dipolmoment[v]}{\abs{\ortsvektor[v] - \ortsvektor[vs]}^3}   \right]$\\
+    $\elpotential_D(\ortsvektor[v]) = \durchvierpie \iiint\limits_V  \frac{\dipoldichte[v] \cdot (\ortsvektor[v] - \ortsvektor[vs])}{\abs{\ortsvektor[v] - \ortsvektor[vs]}^3} \upd^3\ortsvektor[s]$\\
+    $ \kraft[v]_D (\ortsvektor[v]) = (\dipolmoment[v] \cdot \nabla) \efeld[v] (\ortsvektor[v]) = \gradient \left( \dipolmoment[v] \cdot \efeld[v](\ortsvektor[v])\right)  \quad
+    \vec{M}_D (\ortsvektor[v]) ) = \dipolmoment[v] \times \efeld[v](\ortsvektor[v])$
+\end{minipage}
+};
+%------------ Dipol, Dipoldichte Header ---------------------
+\node[estattitle, right=10pt] at (box.north west) {Dipol bei $\ortsvektor[vs]$ , Dipoldichte, Kraft, Drehmoment};
+\end{tikzpicture}
+
+
+%------------ Skalarpotential mit Randwerten auf $O(V)$ ---------------
+\begin{tikzpicture}
+\node [estatbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    \begin{multline*}
+\elpotential(\ortsvektor[v]) = \frac{1}{4\pi\varepsilon_0} \iiint\limits_V
+   \frac{\laddichte{V}(\ortsvektor[vs])}{|\ortsvektor[v]-\ortsvektor[vs]|}
+   \upd^3\ortsvektor[s] \\
+   + \frac{1}{4\pi} \oiint\limits_{O(V)} \left[\frac{1}{|\ortsvektor[v] - \ortsvektor[vs]|}\frac{\partial\elpotential (\ortsvektor[vs])}{\partial n'} - \elpotential (\ortsvektor[vs])\frac{\partial}{\partial n'}\frac{1}{|\ortsvektor[v] - \ortsvektor[vs]|} \right] \upd^2 \ortsvektor[s]
+    \end{multline*}
+\end{minipage}
+};
+%------------ Skalarpotential mit Randwerten Header ---------------------
+\node[estattitle, right=10pt] at (box.north west) {Skalarpotential mit Randwerten auf $O(V)$};
+\end{tikzpicture}
+
+
+%------------ Greensche-Funktionern ---------------
+\begin{tikzpicture}
+\node [estatbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $
+    G(\ortsvektor[v],\ortsvektor[vs]) = \frac{1}{4\pi\varepsilon_0}\frac{1}{|\ortsvektor[v]-\ortsvektor[vs]|} + \Gamma(\ortsvektor[v],\ortsvektor[vs])$\\
+    $\laplace \Gamma(\ortsvektor[v],\ortsvektor[vs]) = 0,\quad \Gamma(\vec{r},\ortsvektor[vs]) =\Gamma(\ortsvektor[vs],\vec{r})
+    $
+\end{minipage}
+};
+%------------ Greensche Funktionen Header ---------------------
+\node[estattitle, right=10pt] at (box.north west) {Greensche Funktionen von $\laplace G(\ortsvektor[v],\ortsvektor[vs]) = -\frac{1}{\varepsilon}\delta(\ortsvektor[v]-\ortsvektor[vs])$};
 \end{tikzpicture}
 
 
