@@ -244,8 +244,15 @@ $
     $
     G(\ortsvektor[v],\ortsvektor[vs]) = \frac{1}{4\pi\varepsilon_0}\frac{1}{|\ortsvektor[v]-\ortsvektor[vs]|} + \Gamma(\ortsvektor[v],\ortsvektor[vs])$\\
     $\laplace \Gamma(\ortsvektor[v],\ortsvektor[vs]) = 0,\quad \Gamma(\vec{r},\ortsvektor[vs]) =\Gamma(\ortsvektor[vs],\vec{r})
-    $
-\end{minipage}
+    $\\
+    \begin{multline*}
+    \elpotential(\ortsvektor[v]) = \iiint\limits_V
+    \laddichte{V}(\ortsvektor[vs]) G(\ortsvektor[v],\ortsvektor[vs]) \upd^3\ortsvektor[s] \\
+    + \varepsilon_0 \oiint\limits_{O(V)} \left[ G(\ortsvektor[v],\ortsvektor[vs]) \frac{\partial\elpotential (\ortsvektor[vs])}{\partial n'} - \elpotential (\ortsvektor[vs])\frac{\partial G(\ortsvektor[v],\ortsvektor[vs])}{\partial n'}\right] \upd^2\ortsvektor[s]
+  \end{multline*}
+  Dirichlet RB: $G(\ortsvektor[v],\ortsvektor[vs]) = 0$ für $\ortsvektor[vs] \in O(V)$\\
+  Neumann RB: $ -\varepsilon_0 \oiint\limits_{O(V)} \elpotential(\ortsvektor[vs])\frac{\partial G(\ortsvektor[v],\ortsvektor[vs])}{\partial n'} \upd^2\ortsvektor[s] = \elpotential_0 $
+ \end{minipage}
 };
 %------------ Greensche Funktionen Header ---------------------
 \node[estattitle, right=10pt] at (box.north west) {Greensche Funktionen von $\laplace G(\ortsvektor[v],\ortsvektor[vs]) = -\frac{1}{\varepsilon}\delta(\ortsvektor[v]-\ortsvektor[vs])$};
