@@ -6,4 +6,4 @@ This is pure LaTeX. All versions are secure.
 
 ## Reporting a Vulnerability
 
-Please open an issue if you think that document has a vulnerbility.
+Please open an issue if you think that the document has a vulnerbility.
