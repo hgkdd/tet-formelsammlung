@@ -59,6 +59,10 @@
     rectangle, rounded corners, inner sep=10pt, inner ysep=10pt]
 \tikzstyle{statstroetitle} =[fill=olive, text=white, font=\bfseries]
 
+\tikzstyle{magstatbox} = [draw=teal, fill=white, very thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=10pt]
+\tikzstyle{magstattitle} =[fill=teal, text=white, font=\bfseries]
+
 
 
 %------------ Maxwell Gleichungen ---------------
@@ -384,7 +388,7 @@ $
     $\to \oint\limits_C \elstromdichte[v] \cdot \upd\vec{s} = \oint\limits_C \kappa\efeld[v]_E \cdot \upd\vec{s} = \kappa U$ (Kichhoffscher Maschensatz)
   \end{minipage}
 };
-%------------ EMK ---------------------
+%------------ EMK Heading---------------------
 \node[statstroetitle, right=10pt] at (box.north west) {Elektromotorische Kraft (EMK), Urspannung};
 \end{tikzpicture}
 
@@ -395,8 +399,58 @@ $
 $\leistungsdichte{V} = \efeld[v]\cdot \elstromdichte[v]$, für dünne Leiter: $P=U I$ (Joulsches Gesetz)
   \end{minipage}
 };
-%------------ Leistung ---------------------
+%------------ Leistung Heading---------------------
 \node[statstroetitle, right=10pt] at (box.north west) {Leistungsdichte};
+\end{tikzpicture}
+
+
+%------------ mag. Vektorpotential ---------------
+\begin{tikzpicture}
+\node [magstatbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $\magflussd[v] (\ortsvektor[v])= \rotation \magvekpot[v](\ortsvektor[v])$\\
+    $\gradient \divergenz \magvekpot[v](\ortsvektor[v]) - \laplace \magvekpot[v](\ortsvektor[v]) = \mu \elstromdichte[v](\ortsvektor[v])$
+  \end{minipage}
+};
+%------------ mag. Vektorpotential Heading---------------------
+\node[magstattitle, right=10pt] at (box.north west) {magnetisches Vektorpotential};
+\end{tikzpicture}
+
+%------------ Eichung ---------------
+\begin{tikzpicture}
+\node [magstatbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $\magvekpot[vs](\ortsvektor[v]) = \magvekpot[v](\ortsvektor[v]) + \gradient \psi (\ortsvektor[v]) \to \magflussd[vs](\ortsvektor[v]) = \magflussd[v](\ortsvektor[v])$\\
+    Coulomb-Eichung: $\divergenz \magvekpot[v](\ortsvektor[v]) = 0$\\
+    $ \laplace \magvekpot[v](\ortsvektor[v]) = -\mu \elstromdichte[v](\ortsvektor[v])$
+  \end{minipage}
+};
+%------------ Eichung Heading---------------------
+\node[magstattitle, right=10pt] at (box.north west) {Eichtransformation};
+\end{tikzpicture}
+
+%------------ Loesung in Coulomb Eichung ---------------
+\begin{tikzpicture}
+\node [magstatbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $\magvekpot[v](\ortsvektor[v]) = \frac{\mu}{4\uppi} \iiint\limits_V \frac{\elstromdichte[v](\ortsvektor[vs])}{\abs{\ortsvektor[v]-\ortsvektor[vs]}} \upd^3 \ortsvektor[s]$ (allgemein)\\
+    $\magvekpot[v](\ortsvektor[v]) = \frac{\mu}{4\uppi} \oint\limits_{\text{Stromweg}} \frac{I}{\abs{\ortsvektor[v]-\ortsvektor[vs]}} \upd \vec{s}\,'$ (Stromfaden)\\
+  \end{minipage}
+};
+%------------ Loesung in Coulomb Eichung Heading---------------------
+\node[magstattitle, right=10pt] at (box.north west) {Lösung in Coulomb Eichung};
+\end{tikzpicture}
+
+%------------ Biot-Savart ---------------
+\begin{tikzpicture}
+\node [magstatbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+$ \magflussd[v](\ortsvektor[v]) = \frac{\mu}{4\uppi} \iiint\limits_V  \frac{\elstromdichte[v](\ortsvektor[vs]) \times (\ortsvektor[v]-\ortsvektor[vs])}{\abs{\ortsvektor[v]-\ortsvektor[vs]}^3} \upd^3\ortsvektor[s]$ (allgemein)\\
+$ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Stromweg}}  I \frac{ (\ortsvektor[v]-\ortsvektor[vs]) \times \upd\vec{s}\,'}{\abs{\ortsvektor[v]-\ortsvektor[vs]}^3} $ (Stromfaden)
+\end{minipage}
+};
+%------------ Biot-Savart Heading---------------------
+\node[magstattitle, right=10pt] at (box.north west) {Biot-Savart};
 \end{tikzpicture}
 
 
