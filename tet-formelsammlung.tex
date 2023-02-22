@@ -236,9 +236,9 @@ $
 \node [estatbox] (box){%
   \begin{minipage}{0.3\textwidth}
     $
-    \elpotential_D(\ortsvektor[v]) = \dfrac{1}{4 \uppi\: \varepsilon}} \frac{\dipolmoment[v] \cdot (\ortsvektor[v] - \ortsvektor[vs])}{\abs{\ortsvektor[v] - \ortsvektor[vs]}^3} $\\
-    $\efeld[v]_D (\ortsvektor[v])= \dfrac{1}{4 \uppi\: \varepsilon}} \left[ \frac{3\left[\dipolmoment[v] \cdot (\ortsvektor[v] - \ortsvektor[vs]) \right] (\ortsvektor[v] - \ortsvektor[vs])}{\abs{\ortsvektor[v] - \ortsvektor[vs]}^5} - \frac{\dipolmoment[v]}{\abs{\ortsvektor[v] - \ortsvektor[vs]}^3}   \right]$\\
-    $\elpotential_D(\ortsvektor[v]) = \dfrac{1}{4 \uppi\: \varepsilon}} \iiint\limits_V  \frac{\dipoldichte[v] \cdot (\ortsvektor[v] - \ortsvektor[vs])}{\abs{\ortsvektor[v] - \ortsvektor[vs]}^3} \upd^3\ortsvektor[s]$\\
+    \elpotential_D(\ortsvektor[v]) = \dfrac{1}{4 \uppi\: \varepsilon} \frac{\dipolmoment[v] \cdot (\ortsvektor[v] - \ortsvektor[vs])}{\abs{\ortsvektor[v] - \ortsvektor[vs]}^3} $\\
+    $\efeld[v]_D (\ortsvektor[v])= \dfrac{1}{4 \uppi\: \varepsilon} \left[ \frac{3\left[\dipolmoment[v] \cdot (\ortsvektor[v] - \ortsvektor[vs]) \right] (\ortsvektor[v] - \ortsvektor[vs])}{\abs{\ortsvektor[v] - \ortsvektor[vs]}^5} - \frac{\dipolmoment[v]}{\abs{\ortsvektor[v] - \ortsvektor[vs]}^3}   \right]$\\
+    $\elpotential_D(\ortsvektor[v]) = \dfrac{1}{4 \uppi\: \varepsilon} \iiint\limits_V  \frac{\dipoldichte[v] \cdot (\ortsvektor[v] - \ortsvektor[vs])}{\abs{\ortsvektor[v] - \ortsvektor[vs]}^3} \upd^3\ortsvektor[s]$\\
     $ \kraft[v]_D (\ortsvektor[v]) = (\dipolmoment[v] \cdot \nabla) \efeld[v] (\ortsvektor[v]) = \gradient \left( \dipolmoment[v] \cdot \efeld[v](\ortsvektor[v])\right)  \quad
     \vec{M}_D (\ortsvektor[v]) ) = \dipolmoment[v] \times \efeld[v](\ortsvektor[v])$
 \end{minipage}
@@ -341,10 +341,12 @@ $
     $
     \laplace = \frac{\partial^2}{\partial \varrho^2} + \frac{1}{\varrho} \frac{\partial }{\partial \varrho} + \frac{1}{\varrho^2} \frac{\partial^2}{\partial  \varphi^2} + \frac{\partial^2}{\partial z^2}$\\
     $\elpotential(\ortsvektor[v]) = R(\varrho) \cdot P(\varphi) \cdot Z(z) $ Produktansatz\\
-    $\frac{\upd^2 Z}{\upd z^2} = k^2 Z$, $\frac{\upd^2 P}{\upd \varphi^2} = -\nu^2 P$, $x=k\varrho$ \\
+    für: $\frac{\upd^2 Z}{\upd z^2} = +k^2 Z$, $\frac{\upd^2 P}{\upd \varphi^2} = -\nu^2 P$, $x=k\varrho$ \\
     $x^2\frac{\upd^2 R}{\upd x^2} + x\frac{\upd R}{\upd x} + (x^2 - \nu^2) R =0$ Bessel-DGL, Ordnung $\nu$\\
-    Lösungen: Bessel Funktionen 1. Art $J_\nu(x)$ und 2. Art $Y_\nu(x)$
-
+    Lösungen: Bessel Funktionen 1. Art $J_\nu(x)$ und 2. Art $Y_\nu(x)$ (Weber, Neumann)\\
+    für: $\frac{\upd^2 Z}{\upd z^2} = -k^2 Z$\\
+    $x^2\frac{\upd^2 R}{\upd x^2} + x\frac{\upd R}{\upd x} - (x^2 + \nu^2) R =0$ mod. Bessel-DGL, Ordnung $\nu$\\
+    Lösungen: mod. Bessel Funktionen 1. Art $I_\nu(x)$ und 2. Art $K_\nu(x)$
   \end{minipage}
 };
 %------------ Separation, Laplace, Kugelkoordinaten ---------------------
