@@ -43,7 +43,7 @@
 %\colorbox[HTML]{e4e4e4}{\makebox[\textwidth-2\fboxsep][l]{texto}
 \begin{document}
 
-\begin{center}{\huge{\textbf{TET Formelsammlung (Prof. H.G. Krauthäuser, TU Dresden, CC0 1.0 Universal)}}}\\
+\begin{center}{\huge{\textbf{TET Formelsammlung (Prof. H.G. Krauthäuser, TU Dresden, CC0 1.0 Universal) \hfill \thepage}}}\\
 \end{center}
 \begin{multicols*}{3}
 
@@ -142,6 +142,35 @@ Für Normalenvektor \(\vec{n}\) von \circled{1} nach \circled{2}:
 \node[allgtitle, right=10pt] at (box.north west) {Stetigkeitsbedingungen};
 \end{tikzpicture}
 
+%------------ Othogonalität, Orthomormalität ---------------
+\begin{tikzpicture}
+\node [allgbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $\langle U_m, U_n\rangle = \int_D U_m^\star (x) U_n(x) \upd x = \delta_{mn} $ \text{ Orthonormalität}\\
+    $\langle U_m, U_n\rangle = \delta_{mn}c_{mn}, \quad c_{mn}\notin \{0,1\} $ \text{ Orthogonatität}
+      \end{minipage}
+    };    
+%------------ Orthogonalität Header ---------------------
+\node[allgtitle, right=10pt] at (box.north west) {Orthogonalität, Othonormalität $U_m(x), U_n(x) \in L^2(D)$};
+\end{tikzpicture}
+
+%------------ Vollständiges Funktionensystem ---------------
+\begin{tikzpicture}
+\node [allgbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $ f(x) = \sum\limits_{n=1}^\infty c_n U_n(x) \text{ mit } c_n = \int\limits_D U_n^\star(x') f(x') \upd x'
+    $ (Entwicklung)\\
+    $\sum\limits_{n=1}^\infty U_n^\star(x') U_n(x) = \delta(x-x')$ (Vollständigkeitsrelation)
+      \end{minipage}
+    };    
+%------------ Vollständiges Funktionensystem ---------------------
+\node[allgtitle, right=10pt] at (box.north west) {Vollständiges Funktionensystem $U_n(x)$};
+\end{tikzpicture}
+
+
+\columnbreak
+
+
 %------------ El. Skalarpotential ---------------
 \begin{tikzpicture}
 \node [estatbox] (box){%
@@ -173,7 +202,6 @@ $$
 \node[estattitle, right=10pt] at (box.north west) {Coulomb-Integral};
 \end{tikzpicture}
 
-\columnbreak
 
 %------------ Spannung ---------------
 \begin{tikzpicture}
@@ -208,9 +236,9 @@ $
 \node [estatbox] (box){%
   \begin{minipage}{0.3\textwidth}
     $
-    \elpotential_D(\ortsvektor[v]) = \durchvierpie \frac{\dipolmoment[v] \cdot (\ortsvektor[v] - \ortsvektor[vs])}{\abs{\ortsvektor[v] - \ortsvektor[vs]}^3} $\\
-    $\efeld[v]_D (\ortsvektor[v])= \durchvierpie \left[ \frac{3\left[\dipolmoment[v] \cdot (\ortsvektor[v] - \ortsvektor[vs]) \right] (\ortsvektor[v] - \ortsvektor[vs])}{\abs{\ortsvektor[v] - \ortsvektor[vs]}^5} - \frac{\dipolmoment[v]}{\abs{\ortsvektor[v] - \ortsvektor[vs]}^3}   \right]$\\
-    $\elpotential_D(\ortsvektor[v]) = \durchvierpie \iiint\limits_V  \frac{\dipoldichte[v] \cdot (\ortsvektor[v] - \ortsvektor[vs])}{\abs{\ortsvektor[v] - \ortsvektor[vs]}^3} \upd^3\ortsvektor[s]$\\
+    \elpotential_D(\ortsvektor[v]) = \dfrac{1}{4 \uppi\: \varepsilon}} \frac{\dipolmoment[v] \cdot (\ortsvektor[v] - \ortsvektor[vs])}{\abs{\ortsvektor[v] - \ortsvektor[vs]}^3} $\\
+    $\efeld[v]_D (\ortsvektor[v])= \dfrac{1}{4 \uppi\: \varepsilon}} \left[ \frac{3\left[\dipolmoment[v] \cdot (\ortsvektor[v] - \ortsvektor[vs]) \right] (\ortsvektor[v] - \ortsvektor[vs])}{\abs{\ortsvektor[v] - \ortsvektor[vs]}^5} - \frac{\dipolmoment[v]}{\abs{\ortsvektor[v] - \ortsvektor[vs]}^3}   \right]$\\
+    $\elpotential_D(\ortsvektor[v]) = \dfrac{1}{4 \uppi\: \varepsilon}} \iiint\limits_V  \frac{\dipoldichte[v] \cdot (\ortsvektor[v] - \ortsvektor[vs])}{\abs{\ortsvektor[v] - \ortsvektor[vs]}^3} \upd^3\ortsvektor[s]$\\
     $ \kraft[v]_D (\ortsvektor[v]) = (\dipolmoment[v] \cdot \nabla) \efeld[v] (\ortsvektor[v]) = \gradient \left( \dipolmoment[v] \cdot \efeld[v](\ortsvektor[v])\right)  \quad
     \vec{M}_D (\ortsvektor[v]) ) = \dipolmoment[v] \times \efeld[v](\ortsvektor[v])$
 \end{minipage}
@@ -225,7 +253,7 @@ $
 \node [estatbox] (box){%
   \begin{minipage}{0.3\textwidth}
     \begin{multline*}
-\elpotential(\ortsvektor[v]) = \frac{1}{4\pi\varepsilon_0} \iiint\limits_V
+\elpotential(\ortsvektor[v]) = \frac{1}{4\pi\varepsilon} \iiint\limits_V
    \frac{\laddichte{V}(\ortsvektor[vs])}{|\ortsvektor[v]-\ortsvektor[vs]|}
    \upd^3\ortsvektor[s] \\
    + \frac{1}{4\pi} \oiint\limits_{O(V)} \left[\frac{1}{|\ortsvektor[v] - \ortsvektor[vs]|}\frac{\partial\elpotential (\ortsvektor[vs])}{\partial n'} - \elpotential (\ortsvektor[vs])\frac{\partial}{\partial n'}\frac{1}{|\ortsvektor[v] - \ortsvektor[vs]|} \right] \upd^2 \ortsvektor[s]
@@ -272,7 +300,6 @@ $
 \node[estattitle, right=10pt] at (box.north west) {Halbraum durch geerdete Ebene. Normale $\vec{n}$ zeigt nach $V$};
 \end{tikzpicture}
 
-\columnbreak
 
 %------------ Kugel, Dirichlet ---------------
 \begin{tikzpicture}
@@ -288,6 +315,44 @@ $
 %------------ Kugel Dirichlet Header ---------------------
 \node[estattitle, right=10pt] at (box.north west) {geerdete Kugeloberfläche $K_a(\vec{0})$};
 \end{tikzpicture}
+
+%------------ Separation, Laplace, Kugelkoordinaten ---------------
+\begin{tikzpicture}
+\node [estatbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $
+    \laplace = \underbrace{\frac{1}{r^2}\frac{\partial}{\partial r} \left( r^2 \frac{\partial}{\partial r} \right)}_{\laplace_r: \text{ Radialanteil}} + \frac{1}{r^2} \underbrace{\left( \frac{1}{\sin\vartheta} \frac{\partial}{\partial\vartheta} \sin\vartheta \frac{\partial}{\partial\vartheta} + \frac{1}{\sin^2\vartheta} \frac{\partial^2}{\partial\varphi^2}  \right)}_{\laplace_{\vartheta\varphi}: \text{ Winkelanteil}}
+    $\\
+    $\elpotential(r,\vartheta,\varphi) = R_l(r) \cdot Y_{lm} (\vartheta,\varphi)$ Produktansatz\\
+    $R_l(r) = A r^l+ Br^{-(l+1)}$ Radiallösung\\
+    $Y_{lm}= \frac{1}{\sqrt{2\pi}} \sqrt{\frac{2l+1}{2}\frac{(l-m)!}{(l+m)!}} P_{lm}(\cos\vartheta) e^{jm\varphi} $ Kugelflächenfunktionen\\
+    $P_{lm}(x) = (-\sqrt{1-x^2})^m \frac{\upd^m P_l(x)}{\upd x^m} $ zugeord. Legendrefunktionen\\
+    $P_l(x) = P_{l0}(x)= \frac{1}{2^l l!} \frac{\upd^l (x^2-1)^l}{\upd x^l}$ Legendre Polynome
+  \end{minipage}
+};
+%------------ Separation, Laplace, Kugelkoordinaten ---------------------
+\node[estattitle, right=10pt] at (box.north west) {Separation, $\laplace\elpotential = 0$, Kugelkoordinaten};
+\end{tikzpicture}
+
+%------------ Separation, Laplace, Zylinderkoordinaten ---------------
+\begin{tikzpicture}
+\node [estatbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $
+    \laplace = \frac{\partial^2}{\partial \varrho^2} + \frac{1}{\varrho} \frac{\partial }{\partial \varrho} + \frac{1}{\varrho^2} \frac{\partial^2}{\partial  \varphi^2} + \frac{\partial^2}{\partial z^2}$\\
+    $\elpotential(\ortsvektor[v]) = R(\varrho) \cdot P(\varphi) \cdot Z(z) $ Produktansatz\\
+    $\frac{\upd^2 Z}{\upd z^2} = k^2 Z$, $\frac{\upd^2 P}{\upd \varphi^2} = -\nu^2 P$, $x=k\varrho$ \\
+    $x^2\frac{\upd^2 R}{\upd x^2} + x\frac{\upd R}{\upd x} + (x^2 - \nu^2) R =0$ Bessel-DGL, Ordnung $\nu$\\
+    Lösungen: Bessel Funktionen 1. Art $J_\nu(x)$ und 2. Art $Y_\nu(x)$
+
+  \end{minipage}
+};
+%------------ Separation, Laplace, Kugelkoordinaten ---------------------
+\node[estattitle, right=10pt] at (box.north west) {Separation, $\laplace\elpotential = 0$, Zylinderkoordinaten};
+\end{tikzpicture}
+
+
+
 
 
 
