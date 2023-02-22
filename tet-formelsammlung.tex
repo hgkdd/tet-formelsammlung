@@ -164,7 +164,7 @@ Für Normalenvektor \(\vec{n}\) von \circled{1} nach \circled{2}:
   \begin{minipage}{0.3\textwidth}
 $$
 \elpotential(\ortsvektor[v]) = \frac{1}{4\pi \varepsilon}
-          \iiint_V
+          \iiint\limits_V
           \frac{\laddichte{V}(\ortsvektor[vs])}{\left|\ortsvektor[v]-\ortsvektor[vs]\right|} \upd^3\ortsvektor[s]
           $$
       \end{minipage}
@@ -242,20 +242,51 @@ $
 \node [estatbox] (box){%
   \begin{minipage}{0.3\textwidth}
     $
-    G(\ortsvektor[v],\ortsvektor[vs]) = \frac{1}{4\pi\varepsilon_0}\frac{1}{|\ortsvektor[v]-\ortsvektor[vs]|} + \Gamma(\ortsvektor[v],\ortsvektor[vs])$\\
+    G(\ortsvektor[v],\ortsvektor[vs]) = \frac{1}{4\pi\varepsilon}\frac{1}{|\ortsvektor[v]-\ortsvektor[vs]|} + \Gamma(\ortsvektor[v],\ortsvektor[vs])$\\
     $\laplace \Gamma(\ortsvektor[v],\ortsvektor[vs]) = 0,\quad \Gamma(\vec{r},\ortsvektor[vs]) =\Gamma(\ortsvektor[vs],\vec{r})
     $\\
     \begin{multline*}
     \elpotential(\ortsvektor[v]) = \iiint\limits_V
     \laddichte{V}(\ortsvektor[vs]) G(\ortsvektor[v],\ortsvektor[vs]) \upd^3\ortsvektor[s] \\
-    + \varepsilon_0 \oiint\limits_{O(V)} \left[ G(\ortsvektor[v],\ortsvektor[vs]) \frac{\partial\elpotential (\ortsvektor[vs])}{\partial n'} - \elpotential (\ortsvektor[vs])\frac{\partial G(\ortsvektor[v],\ortsvektor[vs])}{\partial n'}\right] \upd^2\ortsvektor[s]
+    + \varepsilon \oiint\limits_{O(V)} \left[ G(\ortsvektor[v],\ortsvektor[vs]) \frac{\partial\elpotential (\ortsvektor[vs])}{\partial n'} - \elpotential (\ortsvektor[vs])\frac{\partial G(\ortsvektor[v],\ortsvektor[vs])}{\partial n'}\right] \upd^2\ortsvektor[s]
   \end{multline*}
   Dirichlet RB: $G(\ortsvektor[v],\ortsvektor[vs]) = 0$ für $\ortsvektor[vs] \in O(V)$\\
-  Neumann RB: $ -\varepsilon_0 \oiint\limits_{O(V)} \elpotential(\ortsvektor[vs])\frac{\partial G(\ortsvektor[v],\ortsvektor[vs])}{\partial n'} \upd^2\ortsvektor[s] = \elpotential_0 $
+  Neumann RB: $ -\varepsilon \oiint\limits_{O(V)} \elpotential(\ortsvektor[vs])\frac{\partial G(\ortsvektor[v],\ortsvektor[vs])}{\partial n'} \upd^2\ortsvektor[s] = \elpotential_0 $
  \end{minipage}
 };
 %------------ Greensche Funktionen Header ---------------------
 \node[estattitle, right=10pt] at (box.north west) {Greensche Funktionen von $\laplace G(\ortsvektor[v],\ortsvektor[vs]) = -\frac{1}{\varepsilon}\delta(\ortsvektor[v]-\ortsvektor[vs])$};
+\end{tikzpicture}
+
+
+%------------ Halbraum, Dirichlet ---------------
+\begin{tikzpicture}
+\node [estatbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $
+    G(\ortsvektor[v],\ortsvektor[vs]) = \frac{1}{4\pi\varepsilon}  \left[  \frac{1}{\left|\ortsvektor[v] -  \ortsvektor[vs] \right|}  - \frac{1}{\left|\ortsvektor[v] -  \left[ \ortsvektor[vs] - 2 \vec{n} (\vec{n}\cdot \ortsvektor[vs]) \right] \right|}\right]
+$
+  \end{minipage}
+};
+%------------ Halbraum Dirichlet Header ---------------------
+\node[estattitle, right=10pt] at (box.north west) {Halbraum durch geerdete Ebene. Normale $\vec{n}$ zeigt nach $V$};
+\end{tikzpicture}
+
+\columnbreak
+
+%------------ Kugel, Dirichlet ---------------
+\begin{tikzpicture}
+\node [estatbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $
+    G(\ortsvektor[v],\ortsvektor[vs]) = \frac{1}{4\pi\varepsilon}  \left[  \frac{1}{\left|\ortsvektor[v] -  \ortsvektor[vs] \right|}
+      - \frac{a}{\abs{\ortsvektor[vs]}} \left(  \frac{1}{\left|\ortsvektor[v] -  \frac{a^2}{\abs{\ortsvektor[vs]}^2}\ortsvektor[vs] \right|}\right)
+    \right]
+$
+  \end{minipage}
+};
+%------------ Kugel Dirichlet Header ---------------------
+\node[estattitle, right=10pt] at (box.north west) {geerdete Kugeloberfläche $K_a(\vec{0})$};
 \end{tikzpicture}
 
 
