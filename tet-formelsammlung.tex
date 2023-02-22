@@ -55,6 +55,10 @@
     rectangle, rounded corners, inner sep=10pt, inner ysep=10pt]
 \tikzstyle{estattitle} =[fill=purple, text=white, font=\bfseries]
 
+\tikzstyle{statstroebox} = [draw=olive, fill=white, very thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=10pt]
+\tikzstyle{statstroetitle} =[fill=olive, text=white, font=\bfseries]
+
 
 
 %------------ Maxwell Gleichungen ---------------
@@ -353,7 +357,47 @@ $
 \node[estattitle, right=10pt] at (box.north west) {Separation, $\laplace\elpotential = 0$, Zylinderkoordinaten};
 \end{tikzpicture}
 
+\columnbreak
 
+%------------ Stationäre Stromdichte, Strom ---------------
+\begin{tikzpicture}
+\node [statstroebox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    Allg.: $\elstromdichte[v](\ortsvektor[v],t) = \laddichte{V}(\ortsvektor[v], t)  \geschw[v](\ortsvektor[v],t)$ Stationär: $\dfrac{\partial \laddichte{V}}{\partial t}  = 0
+    $ und $\dfrac{\partial \geschw[v]}{\partial t}  = 0 $\\
+    Strom durch Fläche: $I=\iint\limits_F \elstromdichte[v] \cdot \upd \vec{F}$\\
+    $\divergenz \elstromdichte[v] = 0 \stackrel{\text{Gauss}}{\to} \oiint\limits_{O(V)} \elstromdichte[v] \cdot \upd \vec{A} =0$ (Kirchhoffscher Knotensatz)\\
+    $\elstromdichte[v] = \kappa \efeld[v]$ (außerhalb von Quellen, Ohmsches Gesetz)
+  \end{minipage}
+};
+%------------ Stationäre Stromdichte, Strom ---------------------
+\node[statstroetitle, right=10pt] at (box.north west) {Stationäre Stromdichte, Strom};
+\end{tikzpicture}
+
+%------------ EMK ---------------
+\begin{tikzpicture}
+\node [statstroebox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    Eingeprägte elektrische Feldstärke $\efeld[v]_E$:\\
+    $\oint\limits_C \efeld[v]_E \cdot \upd\vec{s} = U$ EMK, Urspannung\\
+    $\elstromdichte[v] = \kappa (\efeld[v] + \efeld[v]_E) $\\
+    $\to \oint\limits_C \elstromdichte[v] \cdot \upd\vec{s} = \oint\limits_C \kappa\efeld[v]_E \cdot \upd\vec{s} = \kappa U$ (Kichhoffscher Maschensatz)
+  \end{minipage}
+};
+%------------ EMK ---------------------
+\node[statstroetitle, right=10pt] at (box.north west) {Elektromotorische Kraft (EMK), Urspannung};
+\end{tikzpicture}
+
+%------------ Leistung ---------------
+\begin{tikzpicture}
+\node [statstroebox] (box){%
+  \begin{minipage}{0.3\textwidth}
+$\leistungsdichte{V} = \efeld[v]\cdot \elstromdichte[v]$, für dünne Leiter: $P=U I$ (Joulsches Gesetz)
+  \end{minipage}
+};
+%------------ Leistung ---------------------
+\node[statstroetitle, right=10pt] at (box.north west) {Leistungsdichte};
+\end{tikzpicture}
 
 
 
