@@ -43,10 +43,6 @@
 %\colorbox[HTML]{e4e4e4}{\makebox[\textwidth-2\fboxsep][l]{texto}
 \begin{document}
 
-\begin{center}{\huge{\textbf{TET Formelsammlung (Prof. H.G. Krauthäuser, TU Dresden, CC0 1.0 Universal) \hfill \thepage}}}\\
-\end{center}
-\begin{multicols*}{3}
-
 \tikzstyle{allgbox} = [draw=black, fill=white, very thick,
     rectangle, rounded corners, inner sep=10pt, inner ysep=10pt]
 \tikzstyle{allgtitle} =[fill=black, text=white, font=\bfseries]
@@ -64,6 +60,7 @@
 \tikzstyle{magstattitle} =[fill=teal, text=white, font=\bfseries]
 
 
+\begin{multicols*}{3}[\textbf{TET Formelsammlung (Prof. H.G. Krauthäuser, TU Dresden, CC0 1.0 Universal) \hfill \thepage}]
 
 %------------ Maxwell Gleichungen ---------------
 \begin{tikzpicture}
@@ -315,9 +312,7 @@ $
   \begin{minipage}{0.3\textwidth}
     $
     G(\ortsvektor[v],\ortsvektor[vs]) = \frac{1}{4\pi\varepsilon}  \left[  \frac{1}{\left|\ortsvektor[v] -  \ortsvektor[vs] \right|}
-      - \frac{a}{\abs{\ortsvektor[vs]}} \left(  \frac{1}{\left|\ortsvektor[v] -  \frac{a^2}{\abs{\ortsvektor[vs]}^2}\ortsvektor[vs] \right|}\right)
-    \right]
-$
+      - \lambda   \frac{1}{\left|\ortsvektor[v] -  \lambda^2\ortsvektor[vs] \right|}\right], \quad \lambda= \frac{a}{\abs{\ortsvektor[vs]}} $
   \end{minipage}
 };
 %------------ Kugel Dirichlet Header ---------------------
@@ -360,8 +355,11 @@ $
 %------------ Separation, Laplace, Kugelkoordinaten ---------------------
 \node[estattitle, right=10pt] at (box.north west) {Separation, $\laplace\elpotential = 0$, Zylinderkoordinaten};
 \end{tikzpicture}
+\end{multicols*}
 
-\columnbreak
+\newpage
+
+\begin{multicols*}{3}[\textbf{TET Formelsammlung (Prof. H.G. Krauthäuser, TU Dresden, CC0 1.0 Universal) \hfill \thepage}]
 
 %------------ Stationäre Stromdichte, Strom ---------------
 \begin{tikzpicture}
@@ -452,6 +450,22 @@ $ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Strom
 %------------ Biot-Savart Heading---------------------
 \node[magstattitle, right=10pt] at (box.north west) {Biot-Savart};
 \end{tikzpicture}
+
+%------------ magnetische Energie ---------------
+\begin{tikzpicture}
+\node [magstatbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $ \energiedichte_\mathrm{m}(\ortsvektor[v]) = \dfrac{1}{2}  \magfeld[v](\ortsvektor[v]) \cdot \magflussd[v](\ortsvektor[v])=\dfrac{1}{2} \left( \magvekpot[v](\ortsvektor[v])\cdot\elstromdichte[v](\ortsvektor[v]) +\dfrac{1}{\mu} \divergenz \left(\magvekpot[v](\ortsvektor[v]) \times \magflussd[v](\ortsvektor[v])\right)\right) $\\
+    $ \energie_\mathrm{m} = \dfrac{1}{2}  \iiint\limits_{\volumen} \magfeld[v](\ortsvektor[vs]) \cdot \magflussd[v](\ortsvektor[vs]) \upd^3 \ortsvektor[s]
+    = \dfrac{1}{2}\iiint\limits_{\volumen} \magvekpot[v] \cdot \elstromdichte[v] \intvolumen + \dfrac{1}{2 \mu} \oiint\limits_{\oberfl(\volumen)} \magvekpot[v] \times \magflussd[v] \cdot \intflaeche[v] $
+    $\energiedichte_\mathrm{m} = \dfrac{1}{2} \magvekpot[v] \cdot \elstromdichte[v]$, $ \energie_\mathrm{m} = \dfrac{1}{2} \cdot \iiint\limits_{\volumen} \magvekpot[v] \cdot \elstromdichte[v] \intvolumen$ (endliche Stromverteilungen)
+\end{minipage}
+};
+%------------ magnetische Energie Heading---------------------
+\node[magstattitle, right=10pt] at (box.north west) {magnetische Energiedichte, Energie};
+\end{tikzpicture}
+
+\columnbreak
 
 
 
