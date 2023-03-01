@@ -59,6 +59,10 @@
     rectangle, rounded corners, inner sep=10pt, inner ysep=10pt]
 \tikzstyle{magstattitle} =[fill=teal, text=white, font=\bfseries]
 
+\tikzstyle{quastatbox} = [draw=magenta, fill=white, very thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=10pt]
+\tikzstyle{quastattitle} =[fill=magenta, text=white, font=\bfseries]
+
 
 \begin{multicols*}{3}[\textbf{TET Formelsammlung (Prof. H.G. Krauthäuser, TU Dresden, CC0 1.0 Universal) \hfill \thepage}]
 
@@ -468,6 +472,94 @@ $ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Strom
 \columnbreak
 
 
+%------------ Induktivität ---------------
+\begin{tikzpicture}
+\node [magstatbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $\gginduk_{21} = \frac{\phi_{m,2}}{\elstrom_1}  = \dfrac{\mu_0}{4 \uppi}  \oint\limits_{\rand_2} \oint\limits_{\rand_1} \dfrac{\upd \weg[v]_1 \cdot \upd\weg[v]_2}{\left| \ortsvektor[vs]_2 - \ortsvektor[vs]_1 \right|}$\\
+    $ \sinduk = \gginduk_{11} = \frac{\phi_{m}}{\elstrom}  = \frac{1}{I} \iint\limits_{\flaeche} \magflussd[v] \cdot \intflaeche[v] = \frac{1}{I} \oint\limits_{\rand} \magvekpot[v] \cdot \intweg[v] = \frac{2}{I^2}  \energie_\mathrm{m}$
+\end{minipage}
+};
+%------------ Induktivität Heading---------------------
+\node[magstattitle, right=10pt] at (box.north west) {Induktivität};
+\end{tikzpicture}
+
+%------------ magnetisches Moment ---------------
+\begin{tikzpicture}
+\node [magstatbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $\vec{m}(\ortsvektor[v]) = \frac{1}{2}\iiint\limits_{\volumen} \ortsvektor[vs] \times \elstromdichte[v](\ortsvektor[vs]) \intvolumen'$\\
+    $\magvekpot[v](\ortsvektor[v]) = \frac{\mu}{4 \uppi} \frac{\vec{m}(\ortsvektor[v])  \times \ortsvektor[v]}{r^3}  + \dots, \qquad\magflussd[v](\ortsvektor[v]) = \frac{\mu}{4 \uppi} \left[ \frac{3(\ortsvektor[v]\cdot \vec{m}(\ortsvektor[v])) \ortsvektor[v] }{r^5} -\frac{\vec{m}(\ortsvektor[v])}{r^3}\right] + \dots$
+\end{minipage}
+};
+%------------ magnetisches Moment Heading---------------------
+\node[magstattitle, right=10pt] at (box.north west) {magnetisches Moment};
+\end{tikzpicture}
+
+%------------ magnetisches Skalarpotential ---------------
+\begin{tikzpicture}
+\node [magstatbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $\rotation\magfeld[v] = \vec{0} \to \magfeld[v](\ortsvektor[v]) = -\gradient \phi_m (\ortsvektor[v])$\\
+    $\laplace \phi_m = \divergenz \vec{M}$ für räumlich konstantes $\mu$
+\end{minipage}
+};
+%------------ magnetisches Skalarpotential Heading---------------------
+\node[magstattitle, right=10pt] at (box.north west) {magnetisches Skalarpotential};
+\end{tikzpicture}
+
+%------------ Zeiger ---------------
+\begin{tikzpicture}
+\node [quastatbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $\efeld(\ortsvektor[v],\,t) = \hat{\efeld}(\ortsvektor[v])  \cos(\omega  t + \varphi) = \real{\hat{\efeld}(\ortsvektor[v]) \euler^{\komplex  (\omega  t +  \varphi)} } = \real{\efeld[u](\ortsvektor[v]) \euler^{\komplex  \omega  t } }$
+\end{minipage}
+};
+%------------ Zeiger Heading---------------------
+\node[quastattitle, right=10pt] at (box.north west) {Zeiger};
+\end{tikzpicture}
+
+%------------ EQS ---------------
+\begin{tikzpicture}
+\node [quastatbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $\frac{\partial \magflussd[v]}{\partial t} = \vec{0}$ und $\frac{\partial \verschiebung[v]}{\partial t} \neq \vec{0} $\\
+    $\elstromdichte[v] = \elstromdichte[v]_\mathrm{L} + \elstromdichte[v]_\mathrm{E} + \elstromdichte[v]_\mathrm{K} = \kappa \cdot \efeld[v] + \elstromdichte[v]_\mathrm{E} + \elstromdichte[v]_\mathrm{K} $\\
+    $\efeld[uv] = -\gradient \elpotential[u] \text{ komplexes Skalarpotential} $\\
+    $\laplace \elpotential[u] = \frac{1}{\kappa+\komplex\omega \varepsilon}  \divergenz (\elstromdichte[uv]_\mathrm{E} + \elstromdichte[uv]_\mathrm{K} )  \text{ Poisson-Gleichung (komplex)}$
+\end{minipage}
+};
+%------------ EQS Heading---------------------
+\node[quastattitle, right=10pt] at (box.north west) {EQS};
+\end{tikzpicture}
+
+%------------ MQS ---------------
+\begin{tikzpicture}
+\node [quastatbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $\frac{\partial \magflussd[v]}{\partial t} \neq \vec{0}$ und $\frac{\partial \verschiebung[v]}{\partial t} = \vec{0} $\\
+    $\elstromdichte[v] = \elstromdichte[v]_\mathrm{L} + \elstromdichte[v]_\mathrm{E} + \elstromdichte[v]_\mathrm{K} = \kappa \cdot \efeld[v] + \elstromdichte[v]_\mathrm{E} + \elstromdichte[v]_\mathrm{K} $\\
+    Homogene Diffusionsgleichung:\\
+    $\laplace \Psi(\ortsvektor[v], t) -\mu\kappa \frac{\partial}{\partial t} \Psi(\ortsvektor[v], t) = 0\quad \laplace \underline{\Psi}(\ortsvektor[v], t) -\komplex\omega\mu\kappa \underline{\Psi}(\ortsvektor[v], t) = 0$\\
+    Eindringtiefe: $\delta = \sqrt{\dfrac{2}{\omega \mu \kappa}}$\\
+    Oberflächenimpedanz: $\underbar{Z}_A = \frac{1+\komplex}{\kappa\delta} = (1+\komplex) \sqrt{\frac{\omega\mu}{2\kappa}} = \sqrt{\frac{\komplex \omega \mu}{\kappa}}$\\
+    Oberflächenwiderstand: $R_A = \sqrt{\frac{\omega\mu}{2\kappa}} = \frac{1}{\kappa\delta}$\\
+    Verlustleistung: $P = \iiint_V \efeld[v]\cdot\elstromdichte[v]\upd V = \iiint_V \frac{1}{\kappa}\left|\elstromdichte[v]\right|^2\upd V$\\
+    $\left\langle P\right\rangle_T  = A \int_0^\infty \frac{1}{\kappa}\frac{\kappa^2\efeld_0^2}{2} \euler^{-2\frac{x}{\delta}}\upd x = A  \frac{\kappa\efeld_0^2}{4} \delta $\\
+    Induktion: \\
+    $
+    U_{\text{ind}} =\oint_{C(A)} \efeld[v]\cdot\upd\vec{s} = - \frac{\upd }{\upd t} \iint_{A} \magflussd[v] \cdot \upd \vec{A}  = -\dot{\Phi} $\\
+    $U_\text{ind} = \oint\displaylimits_{C(A(t))} \left( \efeld[v] + \vec{v} \times \magflussd[v]\right) \cdot\upd\vec{s} = - \frac{\upd}{\upd t}  \iint_{A(t)} \magflussd[v] \cdot \upd\vec{A}  = -\dot{\Phi}$\\
+    SRT: System S' bewegt sich mit $\vec{v}$ relativ zum System S ($v\ll c$):\\
+       \begin{align*}
+      \efeld[v]_\parallel' & = \efeld[v]_\parallel & \magflussd[v]_\parallel' &= \magflussd[v]_\parallel\\
+      \efeld[v]_\perp' &= \efeld[v]_\perp + \vec{v} \times \magflussd[v] & \magflussd[v]_\perp'  & = \magflussd[v]_\perp  
+      \end{align*}    
+  \end{minipage}
+};
+%------------ MQS Heading---------------------
+\node[quastattitle, right=10pt] at (box.north west) {MQS};
+\end{tikzpicture}
 
 
 \end{multicols*}
