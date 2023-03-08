@@ -72,19 +72,19 @@
   \begin{minipage}{0.3\textwidth}
     \begin{align*}
      \rotation \efeld[v] = -\dfrac{\partial \magflussd[v]}{\partial t} 
-		&\stackrel{\text{Stokes}}{\to}	\oint\limits_{\rand(\flaeche)} \efeld[v]
+		&\stackrel{\text{Stokes}}{\to}	\oint\limits_{\rand(F)} \efeld[v]
                    \cdot \intweg[v] = -\dfrac{\upd}{\upd t}
-                   \iint\limits_{\flaeche} \magflussd[v] \cdot \intflaeche[v]\\
+                   \iint\limits_{F} \magflussd[v] \cdot \upd\vec{F}\\
 	 \rotation \magfeld[v] = \elstromdichte[v] +\dfrac{\partial \verschiebung[v]}{\partial t} 
-		&\stackrel{\text{Stokes}}{\to}	\oint\limits_{\rand(\flaeche)} \magfeld[v]
-                   \cdot \intweg[v] = \iint\limits_{\flaeche}
-                   \elstromdichte[v] \cdot \intflaeche[v] + \dfrac{\upd}{\upd t}
-                   \iint\limits_{\flaeche} \verschiebung[v] \cdot \intflaeche[v]\\
+		&\stackrel{\text{Stokes}}{\to}	\oint\limits_{\rand(F)} \magfeld[v]
+                   \cdot \intweg[v] = \iint\limits_{F}
+                   \elstromdichte[v] \cdot \upd\vec{F} + \dfrac{\upd}{\upd t}
+                   \iint\limits_{F} \verschiebung[v] \cdot \upd\vec{F}\\
 	 \divergenz \magflussd[v] = 0
-		&\stackrel{\text{Gauss}}{\to}	\oiint\limits_{\oberfl(\volumen)} \magflussd[v]\cdot \intflaeche[v] = 0\\
+		&\stackrel{\text{Gauss}}{\to}	\oiint\limits_{\oberfl(\volumen)} \magflussd[v]\cdot \upd\vec{F} = 0\\
 	 \divergenz \verschiebung[v] = \laddichte{V}
 		&\stackrel{\text{Gauss}}{\to}	\oiint\limits_{\oberfl(\volumen)}
-                   \verschiebung[v]\cdot \intflaeche[v] =
+                   \verschiebung[v]\cdot \upd\vec{F} =
                    \iiint\limits_{\volumen} \laddichte{V} \intvolumen 
 \end{align*}
       \end{minipage}
@@ -116,7 +116,7 @@
   \begin{minipage}{0.3\textwidth}
     \begin{align*}
       \divergenz \elstromdichte[v] = -\dfrac{\partial \laddichte{V}}{\partial t}
-&\quad\stackrel{\text{Gauss}}{\to}\quad	\oiint\limits_{\oberfl(\volumen)} \elstromdichte[v] \cdot \intflaeche[v] = -\iiint\limits_{\volumen} \dfrac{\partial \laddichte{V}}{\partial t} \intvolumen
+&\quad\stackrel{\text{Gauss}}{\to}\quad	\oiint\limits_{\oberfl(\volumen)} \elstromdichte[v] \cdot \upd\vec{F} = -\iiint\limits_{\volumen} \dfrac{\partial \laddichte{V}}{\partial t} \intvolumen
 \end{align*}
       \end{minipage}
 };
@@ -461,7 +461,7 @@ $ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Strom
   \begin{minipage}{0.3\textwidth}
     $ \energiedichte_\mathrm{m}(\ortsvektor[v]) = \dfrac{1}{2}  \magfeld[v](\ortsvektor[v]) \cdot \magflussd[v](\ortsvektor[v])=\dfrac{1}{2} \left( \magvekpot[v](\ortsvektor[v])\cdot\elstromdichte[v](\ortsvektor[v]) +\dfrac{1}{\mu} \divergenz \left(\magvekpot[v](\ortsvektor[v]) \times \magflussd[v](\ortsvektor[v])\right)\right) $\\
     $ \energie_\mathrm{m} = \dfrac{1}{2}  \iiint\limits_{\volumen} \magfeld[v](\ortsvektor[vs]) \cdot \magflussd[v](\ortsvektor[vs]) \upd^3 \ortsvektor[s]
-    = \dfrac{1}{2}\iiint\limits_{\volumen} \magvekpot[v] \cdot \elstromdichte[v] \intvolumen + \dfrac{1}{2 \mu} \oiint\limits_{\oberfl(\volumen)} \magvekpot[v] \times \magflussd[v] \cdot \intflaeche[v] $
+    = \dfrac{1}{2}\iiint\limits_{\volumen} \magvekpot[v] \cdot \elstromdichte[v] \intvolumen + \dfrac{1}{2 \mu} \oiint\limits_{\oberfl(\volumen)} \magvekpot[v] \times \magflussd[v] \cdot \upd\vec{F} $
     $\energiedichte_\mathrm{m} = \dfrac{1}{2} \magvekpot[v] \cdot \elstromdichte[v]$, $ \energie_\mathrm{m} = \dfrac{1}{2} \cdot \iiint\limits_{\volumen} \magvekpot[v] \cdot \elstromdichte[v] \intvolumen$ (endliche Stromverteilungen)
 \end{minipage}
 };
@@ -477,7 +477,7 @@ $ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Strom
 \node [magstatbox] (box){%
   \begin{minipage}{0.3\textwidth}
     $\gginduk_{21} = \frac{\phi_{m,2}}{\elstrom_1}  = \dfrac{\mu_0}{4 \uppi}  \oint\limits_{\rand_2} \oint\limits_{\rand_1} \dfrac{\upd \weg[v]_1 \cdot \upd\weg[v]_2}{\left| \ortsvektor[vs]_2 - \ortsvektor[vs]_1 \right|}$\\
-    $ \sinduk = \gginduk_{11} = \frac{\phi_{m}}{\elstrom}  = \frac{1}{I} \iint\limits_{\flaeche} \magflussd[v] \cdot \intflaeche[v] = \frac{1}{I} \oint\limits_{\rand} \magvekpot[v] \cdot \intweg[v] = \frac{2}{I^2}  \energie_\mathrm{m}$
+    $ \sinduk = \gginduk_{11} = \frac{\phi_{m}}{\elstrom}  = \frac{1}{I} \iint\limits_{F} \magflussd[v] \cdot \upd\vec{F} = \frac{1}{I} \oint\limits_{\rand} \magvekpot[v] \cdot \intweg[v] = \frac{2}{I^2}  \energie_\mathrm{m}$
 \end{minipage}
 };
 %------------ Induktivität Heading---------------------
@@ -559,6 +559,37 @@ $ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Strom
 };
 %------------ MQS Heading---------------------
 \node[quastattitle, right=10pt] at (box.north west) {MQS};
+\end{tikzpicture}
+
+\columnbreak
+
+%------------ Energieerhaltung Poyntingscher Vektor---------------------
+\begin{tikzpicture}
+\node [allgbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    Poynting-Vektor: $\poyvec[v](\ortsvektor[v],t)= \efeld[v](\ortsvektor[v],t) \times \magfeld[v](\ortsvektor[v],t)$\\
+    $\frac{\partial w_{\text{mech}}}{\partial t}=\efeld[v] \cdot \elstromdichte[v] = - \divergenz \poyvec[v] - \magfeld[v]\cdot\frac{\partial \magflussd[v]}{\partial t} - \efeld[v] \cdot \frac{\partial \verschiebung[v]}{\partial t}$ (allgemein)\\
+    $\efeld[v] \cdot \elstromdichte[v] = - \divergenz \poyvec[v] - \frac{\partial}{\partial t}\left[\frac{1}{2} \magfeld[v]\cdot\magflussd[v] + \frac{1}{2} \efeld[v] \cdot \verschiebung[v]\right] = - \divergenz \poyvec[v] - \frac{\partial w_{\text{em}}}{\partial t}$ (lhi)\\
+    $\frac{\partial}{\partial t} \iiint\limits_V \left( w_{\text{mech}} + w_{\text{em}} \right) \upd V = - \oiint\limits_{O(V)} \poyvec[v] \cdot \upd\vec{F}$ (lhi)\\
+    harmonische Zeitabhängigkeit:\\
+    $\efeld[v](\ortsvektor[v],\,t) = \real{\efeld[uv](\ortsvektor[v])  \euler^{\komplex  \omega  t} } = \frac{1}{2} \left[\efeld[uv](\ortsvektor[v])  \euler^{\komplex  \omega  t}  + \efeld[uv]^\star(\ortsvektor[v])  \euler^{-\komplex  \omega  t}  \right]$\\
+   $ {w_e = \frac{1}{4}\real{\efeld[uv] \cdot \verschiebung[uv]  \euler^{\komplex  2\omega  t}} + \frac{1}{4}\real{\efeld[uv] \cdot \verschiebung[uv]^\star} \stackrel{\varepsilon\in\mathbb{R}}{=} \dots + \frac{1}{4}\efeld[uv] \cdot \verschiebung[uv]^\star}$\\
+   $ {w_m = \frac{1}{4}\real{\magfeld[uv] \cdot \magflussd[uv]  \euler^{\komplex  2\omega  t}} + \frac{1}{4}\real{\magfeld[uv] \cdot \magflussd[uv]^\star}
+     \stackrel{\mu\in\mathbb{R}}{=} \dots + \frac{1}{4}\magfeld[uv] \cdot \magflussd[uv]^\star}$\\
+   $\langle w_e \rangle = \frac{1}{4}\real{\efeld[uv] \cdot \verschiebung[uv]^\star} \stackrel{\varepsilon\in \mathbb{R}}{=} \frac{1}{4}\efeld[uv] \cdot \verschiebung[uv]^\star$\\
+   $\langle w_m \rangle = \frac{1}{4}\real{\magfeld[uv] \cdot \magflussd[uv]^\star} \stackrel{\mu\in \mathbb{R}}{=} \frac{1}{4}\magfeld[uv] \cdot \magflussd[uv]^\star$\\
+   $\langle p_V \rangle  = \frac{1}{2}\real{\efeld[uv] \cdot \elstromdichte[uv]^\star} \stackrel{\kappa\in \mathbb{R}}{=} \frac{1}{2}\efeld[uv] \cdot \elstromdichte[uv]^\star $\\
+   $\poyvec[uv] = \frac{1}{2}\efeld[uv] \times \magfeld[uv]^\star\quad \langle \poyvec[v]\rangle  = \real{\poyvec[uv]}$ komplexer Poynting Vektor\\
+   $
+    {\real{\divergenz\poyvec[uv]} + \langle p_V \rangle =0 \quad  \imaginaer{\divergenz\poyvec[uv]} + 2\omega(\langle w_m\rangle - \langle w_e\rangle ) =0 
+    }$\\
+    $\oiint_{O(V)} \poyvec[uv]\cdot \upd\vec{A} + \iiint_V \langle p_V \rangle \upd V + \komplex 2\omega\iiint_V \left( \langle w_m\rangle - \langle w_e\rangle \right)\upd V  = 0$\\
+    $\langle P_V \rangle = \iiint_V \langle p_V \rangle \upd V = -\oiint_{O(V)} \real{\poyvec[uv]}\cdot \upd\vec{A}$ (Wirkleistung)\\
+    $2\omega\iiint_V \left( \langle w_m\rangle - \langle w_e\rangle \right)\upd V = -\oiint_{O(V)} \imaginaer{\poyvec[uv]}\cdot \upd\vec{A}$ (Blindleistung)
+  \end{minipage}
+};
+%------------ Energieerhaltung Poynting Header ---------------------
+\node[allgtitle, right=10pt] at (box.north west) {Energieerhaltung, Poyntingscher Vektor};
 \end{tikzpicture}
 
 
