@@ -592,6 +592,22 @@ $ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Strom
 \node[allgtitle, right=10pt] at (box.north west) {Energieerhaltung, Poyntingscher Vektor};
 \end{tikzpicture}
 
+%------------ Kraft, Spannungstensor, Impulserhaltung Vektor---------------------
+\begin{tikzpicture}
+\node [allgbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $\vec{p}^\text{em}_V = \varepsilon\mu\poyvec[v],\quad \vec{p}^\text{em} = \iiint_V \varepsilon\mu\poyvec[v] \upd V$\\
+  $\mathbf{T} = \left(T_{ij}\right) \text{ mit } {T_{ij} = \varepsilon\left[ \efeld_i\efeld_j-\frac{1}{2}\delta_{ij} |\efeld[v]|^2\right] + \frac{1}{\mu} \left[\magflussd_i\magflussd_j-\frac{1}{2}\delta_{ij} |\magflussd[v]|^2\right] $\\
+    $ \kraftdichte[v] = \divergenz \mathbf{T} - \varepsilon\mu\frac{\upd \poyvec[v]}{\upd t}$\\
+    $\kraft[v] = \oiint_{O(V)} \mathbf{T} \cdot \upd\vec{A} - \varepsilon\mu\frac{\upd}{\upd t} \iiint_V \poyvec[v] \upd V$\\
+    $\frac{\upd }{\upd t}\left(\vec{p}^\text{mech}_V + \vec{p}^\text{em}_V\right) =\divergenz\mathbf{T}$ (lokale Impulsbilanz)\\
+    $\frac{\upd }{\upd t} \iiint_V \left(\vec{p}^\text{mech}_V + \vec{p}^\text{em}_V\right)\upd V = \oiint_{O(V)}\mathbf{T} \cdot \upd \vec{A}$ (integrale Impulsbilanz)
+  \end{minipage}
+};
+%------------ Kraft, Spannungstensor, Impulserhaltung Header ---------------------
+\node[allgtitle, right=10pt] at (box.north west) {Kraft, Spannungstensor, Impuls};
+\end{tikzpicture}
+
 
 \end{multicols*}
 \end{document}
