@@ -16,6 +16,7 @@
 \usepackage{mathtools}
 \usepackage{amsmath,amssymb}
 \usepackage{enumitem}
+\usepackage{siunitx}
 \makeatletter
 
 \newcommand*\bigcdot{\mathpalette\bigcdot@{.5}}
@@ -596,8 +597,8 @@ $ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Strom
 \begin{tikzpicture}
 \node [allgbox] (box){%
   \begin{minipage}{0.3\textwidth}
-    $\vec{p}^\text{em}_V = \varepsilon\mu\poyvec[v],\quad \vec{p}^\text{em} = \iiint_V \varepsilon\mu\poyvec[v] \upd V$\\
-  $\mathbf{T} = \left(T_{ij}\right) \text{ mit } {T_{ij} = \varepsilon\left[ \efeld_i\efeld_j-\frac{1}{2}\delta_{ij} |\efeld[v]|^2\right] + \frac{1}{\mu} \left[\magflussd_i\magflussd_j-\frac{1}{2}\delta_{ij} |\magflussd[v]|^2\right] $\\
+    $\vec{p}^{\text{em}}_V = \varepsilon\mu\poyvec[v],\quad \vec{p}^{\text{em}} = \iiint_V \varepsilon\mu\poyvec[v] \upd V$\\
+  $\mathbf{T} = \left( T_{ij}\right) \text{ mit } T_{ij} = \varepsilon\left[ \efeld_i\efeld_j-\frac{1}{2}\delta_{ij} |\efeld[v]|^2\right] + \frac{1}{\mu} \left[\magflussd_i\magflussd_j-\frac{1}{2}\delta_{ij} |\magflussd[v]|^2\right] $\\
     $ \kraftdichte[v] = \divergenz \mathbf{T} - \varepsilon\mu\frac{\upd \poyvec[v]}{\upd t}$\\
     $\kraft[v] = \oiint_{O(V)} \mathbf{T} \cdot \upd\vec{A} - \varepsilon\mu\frac{\upd}{\upd t} \iiint_V \poyvec[v] \upd V$\\
     $\frac{\upd }{\upd t}\left(\vec{p}^\text{mech}_V + \vec{p}^\text{em}_V\right) =\divergenz\mathbf{T}$ (lokale Impulsbilanz)\\
@@ -608,6 +609,85 @@ $ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Strom
 \node[allgtitle, right=10pt] at (box.north west) {Kraft, Spannungstensor, Impuls};
 \end{tikzpicture}
 
+%------------ Wellengleichung der Felder---------------------
+\begin{tikzpicture}
+\node [allgbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $\laplace \efeld[v]-\varepsilon\mu \frac{\d^2\efeld[v]}{\d t^2} = \gradient \frac{\laddichte{V}}{\varepsilon}+\mu \frac{\d \elstromdichte[v]}{\d t}, \quad \laplace\magfeld[v]-\varepsilon\mu\frac{\d^2}{\d t^2}\magfeld[v]= -\rotation\elstromdichte[v]$
+  \end{minipage}
+};
+%------------ Wellengleichung der Felder Header ---------------------
+\node[allgtitle, right=10pt] at (box.north west) {Wellengleichung der Felder};
+\end{tikzpicture}
+
+%------------ Potentiale, Eichung---------------------
+\begin{tikzpicture}
+\node [allgbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $\magflussd[v]=\rotation\magvekpot[v], \quad \efeld[v]=-\gradient\elpotential -\frac{\d \magvekpot[v]}{\d t}$\\
+    $\laplace\elpotential + \frac{\d}{\d t}\divergenz \magvekpot[v] = -\frac{\laddichte{V}}{\varepsilon}, \; \laplace\magvekpot[v]-\varepsilon\mu\frac{\d^2 \magvekpot[v]}{\d t^2}-\gradient\left[ \divergenz\magvekpot[v] +\varepsilon\mu\frac{\d \elpotential}{\d t}\right] = -\mu \elstromdichte[v]$\\
+    Eichtransformation: $\magvekpot[vs] = \magvekpot[v] + \gradient \Lambda , \quad \elpotential[s] = \elpotential-\frac{\d \Lambda}{\d t}$\\
+    LE: $\divergenz\magvekpot[v] = -\varepsilon\mu \frac{\d \elpotential}{\d t},\; \laplace\elpotential-\varepsilon\mu \frac{\d^2}{\d t^2}\elpotential = -\frac{\laddichte{V}}{\varepsilon},\; \laplace\magvekpot[v]-\varepsilon\mu \frac{\d^2}{\d t^2}\magvekpot[v] = -\mu \elstromdichte[v] $ \\
+    CE: $\divergenz \magvekpot[v] = 0, \; \laddichte{V}=0 \Rightarrow \elpotential = 0 \text{ und } \laplace\magvekpot[v]-\varepsilon\mu\frac{\d^2\magvekpot[v]}{\d t^2}=-\mu \elstromdichte[v]$
+  \end{minipage}
+};
+%------------ Potentiale Eichung Header ---------------------
+\node[allgtitle, right=10pt] at (box.north west) {Potentiale und Eichtransformationen};
+\end{tikzpicture}
+
+
+%------------ Ausbreitungsgeschwindigkeit---------------------
+\begin{tikzpicture}
+\node [allgbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $\geschw_{c} = \frac{1}{\sqrt{\varepsilon\mu}} = \frac{1}{\sqrt{\varepsilon_0\mu_0}\sqrt{\varepsilon_\mathrm{r}\mu_\mathrm{r}}} = \frac{\lichtgeschw}{\sqrt{\varepsilon_\mathrm{r}\mu_\mathrm{r}}} =\frac{\lichtgeschw}{\brechind} , \; \lichtgeschw = \SI{299792458}{\metre\per\second}$
+  \end{minipage}
+};
+%------------ Ausbreitungsgeschwindigkeit Header ---------------------
+\node[allgtitle, right=10pt] at (box.north west) {Ausbreitungsgeschwindigkeit};
+\end{tikzpicture}
+
 
 \end{multicols*}
+
+\newpage
+
+\begin{multicols*}{3}[\textbf{TET Formelsammlung (Prof. H.G. Krauthäuser, TU Dresden, CC0 1.0 Universal) \hfill \thepage}]
+
+%------------ Homogene Wellengleichung, Ebene Wellen ---------------
+\begin{tikzpicture}
+\node [statstroebox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $ \laplace\Psi (\ortsvektor[v], t) - \frac{1}{\geschw_{c}^2}\frac{\d ^2}{\d t^2}\Psi (\ortsvektor[v], t) = 0$\\
+    $ \Psi (\ortsvektor[v], t) = \sum\limits_\omega \left( \Psi_+ (\omega t + \wellenzahl[v]\cdot\ortsvektor[v]) + \Psi_- (\omega t - \wellenzahl[v]\cdot\ortsvektor[v]) \right), \; \wellenzahl[v] = \frac{\omega}{\geschw_{c}} \vec{e}_{\wellenzahl} $\\
+    Phasengeschwindigkeit: $\geschw_p = \frac{\omega}{\wellenzahl}$
+  \end{minipage}
+};
+%------------ Homogene Wellengleichung, Ebene Wellen Header ---------------------
+\node[statstroetitle, right=10pt] at (box.north west) {Homogene Wellengleichung, Ebene Wellen bezgl. $\vec{e}_{\wellenzahl}$};
+\end{tikzpicture}
+
+%------------ Harmonische ebene Wellen ---------------
+\begin{tikzpicture}
+\node [statstroebox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $ \underline{\Psi}(\ortsvektor[v], t) = \underline{\Psi}_0 \euler^{\komplex(\omega t -\wellenzahl[v] \cdot \ortsvektor[v])}, \; \Psi(\ortsvektor[v], t) = \real{\underline{\Psi}(\ortsvektor[v], t)}$\\
+    Wellenlänge: $\lambda = \frac{2\pi}{\wellenzahl}$, Frequenz: $f=\frac{\omega}{2\pi}$, Periode: $T = 1/f$\\
+    Geschwindigkeiten: $\geschw_{\mathrm{p}}= f \cdot \lambda = \geschw_{c} = (\lichtgeschw \text{ für } \varepsilon = \varepsilon_0, \mu = \mu_0) $\\
+    Hinlaufende (-) und rücklaufende (+) Welle:\\
+    $\efeld[uv] = \efeld[uv]_0 \euler^{\komplex(\omega t \mp \wellenzahl[v]\cdot\ortsvektor[v])}, \quad \magflussd[uv] = \magflussd[uv]_0 \euler^{\komplex(\omega t \mp \wellenzahl[v]\cdot\ortsvektor[v])}$\\
+    $\magflussd[uv] = \pm \frac{1}{\omega} \wellenzahl[v] \times\efeld[uv]= \pm \frac{1}{\geschw_{\mathrm{p}}}\vec{e}_{\wellenzahl} \times\efeld[uv], \; \efeld[uv] = \mp \frac{\geschw_{\mathrm{p}}^2}{\omega} \wellenzahl[v] \times\magflussd[uv]= \mp \geschw_{\mathrm{p}}\vec{e}_{\wellenzahl} \times\magflussd[uv]$\\
+    $\frac{\abs{\efeld[uv]}}{\abs{\magflussd[uv]}} = \geschw_{\mathrm{p}} = \geschw_{\mathrm{c}} = \frac{1}{\sqrt{\varepsilon\mu}}, \; \frac{\abs{\efeld[uv]}}{\abs{\magfeld[uv]}} = \mu \geschw_{\mathrm{p}} = \mu \geschw_{\mathrm{c}} = \sqrt{\frac{\mu}{\varepsilon}} = Z \text{ (Impedanz)}$
+    
+  \end{minipage}
+};
+%------------ Harmonische ebene Wellen Header ---------------------
+\node[statstroetitle, right=10pt] at (box.north west) {Harmonische ebene Wellen};
+\end{tikzpicture}
+
+
+\end{multicols*}
+
+
+
 \end{document}
