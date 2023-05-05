@@ -656,7 +656,7 @@ $ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Strom
 
 %------------ Homogene Wellengleichung, Ebene Wellen ---------------
 \begin{tikzpicture}
-\node [statstroebox] (box){%
+\node [allgbox] (box){%
   \begin{minipage}{0.3\textwidth}
     $ \laplace\Psi (\ortsvektor[v], t) - \frac{1}{\geschw_{c}^2}\frac{\d ^2}{\d t^2}\Psi (\ortsvektor[v], t) = 0$\\
     $ \Psi (\ortsvektor[v], t) = \sum\limits_\omega \left( \Psi_+ (\omega t + \wellenzahl[v]\cdot\ortsvektor[v]) + \Psi_- (\omega t - \wellenzahl[v]\cdot\ortsvektor[v]) \right), \; \wellenzahl[v] = \frac{\omega}{\geschw_{c}} \vec{e}_{\wellenzahl} $\\
@@ -664,12 +664,12 @@ $ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Strom
   \end{minipage}
 };
 %------------ Homogene Wellengleichung, Ebene Wellen Header ---------------------
-\node[statstroetitle, right=10pt] at (box.north west) {Homogene Wellengleichung, Ebene Wellen bezgl. $\vec{e}_{\wellenzahl}$};
+\node[allgtitle, right=10pt] at (box.north west) {Homogene Wellengleichung, Ebene Wellen bezgl. $\vec{e}_{\wellenzahl}$};
 \end{tikzpicture}
 
 %------------ Harmonische ebene Wellen ---------------
 \begin{tikzpicture}
-\node [statstroebox] (box){%
+\node [allgbox] (box){%
   \begin{minipage}{0.3\textwidth}
     $ \underline{\Psi}(\ortsvektor[v], t) = \underline{\Psi}_0 \euler^{\komplex(\omega t -\wellenzahl[v] \cdot \ortsvektor[v])}, \; \Psi(\ortsvektor[v], t) = \real{\underline{\Psi}(\ortsvektor[v], t)}$\\
     Wellenlänge: $\lambda = \frac{2\pi}{\wellenzahl}$, Frequenz: $f=\frac{\omega}{2\pi}$, Periode: $T = 1/f$\\
@@ -682,7 +682,7 @@ $ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Strom
   \end{minipage}
 };
 %------------ Harmonische ebene Wellen Header ---------------------
-\node[statstroetitle, right=10pt] at (box.north west) {Harmonische ebene Wellen};
+\node[allgtitle, right=10pt] at (box.north west) {Harmonische ebene Wellen};
 \end{tikzpicture}
 
 
