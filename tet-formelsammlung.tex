@@ -779,8 +779,33 @@ $ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Strom
     $\langle \impulsdichte^{em} \rangle = \varepsilon\mu\langle \poyvec[v] \rangle = \frac{1}{\geschw_c^2} \geschw_p \langle \energiedichte_{\text{em}}\rangle\; \einheitsvek{k} = \frac{1}{\geschw_c} \langle \energiedichte_{\text{em}}\rangle\; \einheitsvek{k}$
   \end{minipage}
 };
-%------------ EM-Wellen: Energie und Impuls Header ---------------------
+% ------------ EM-Wellen: Energie und Impuls Header ---------------------
 \node[allgtitle, right=10pt] at (box.north west) {EM-Wellen: Energie und Impuls};
+\end{tikzpicture}
+
+%------------ EM-Wellen: leitfähige Medien ---------------
+\begin{tikzpicture}
+\node [allgbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $\kappa \ne 0 \to \elstromdichte[v] = \kappa \efeld[v]$\\
+    Telegraphen-Gleichungen:\\
+    $\left[\laplace - \varepsilon\mu \frac{\d^2}{\d t^2} -\mu\kappa \frac{\d}{\d t}\right]\efeld[v](\ortsvektor[v], t) = \left[\square -\mu\kappa \frac{\d}{\d t}\right]\efeld[v](\ortsvektor[v], t) = \vec{0}; \magflussd[v]$ analog\\
+    harmonische Zeitabhängigkeit: $\left[ \laplace + \omega^2\varepsilon\mu - \komplex\omega\mu\kappa \right] \underline{\Psi}(\ortsvektor[v], t) =0$\\
+    entspricht Wellengleichung mit komplexen Größen:\\
+    $\left[ \laplace + \frac{\omega^2}{\lichtgeschw^2}\underline{\varepsilon}_r\mu_r\right] \underline{\Psi}(\ortsvektor[v], t) = \left[ \laplace + \frac{\omega^2}{\geschw[u]_c^2}\right] \underline{\Psi}(\ortsvektor[v], t)=0$\\
+    $\underline{\varepsilon}_r = \varepsilon_r^{\prime} + \komplex \varepsilon_r^{\prime\prime} = \varepsilon_r - \komplex\frac{\kappa}{\varepsilon_0\omega} = |\underline{\varepsilon}_r| \euler^{\komplex\varphi};\; |\underline{\varepsilon}_r|=\sqrt{\varepsilon_r^2+\frac{\kappa^2}{\varepsilon_0^2\omega^2}}$\\
+    $\tan\varphi = -\tfrac{\kappa}{\varepsilon_0\varepsilon_r\omega}; \; \geschw[u]_c = \tfrac{1}{\sqrt{\varepsilon_0\underline{\varepsilon}_r\mu_0\mu_r}} = \tfrac{1}{\sqrt{\underline{\varepsilon}\mu}} $\\
+    Lösung: $\underline{\Psi}(\ortsvektor[v], t) = \underline{\Psi}_0 \euler^{\komplex(\omega t - \wellenzahl[uv]\cdot\ortsvektor[v])}$\\
+    $\wellenzahl[uv] = \frac{\omega}{\geschw[u]_c} \einheitsvek{k} = \omega \sqrt{\underline{\varepsilon}\mu}\, \einheitsvek{k}= \frac{\omega}{\lichtgeschw} \sqrt{\underline{\varepsilon}_r\mu_r}\, \einheitsvek{k} = \frac{\omega}{\lichtgeschw} \underline{n}\, \einheitsvek{k}$ komp. Wellenvek.\\
+    $\underline{n} = \sqrt{\underline{\varepsilon}_r\mu_r} = n^{\prime} - \komplex \gamma$ Kompl. Brech.-Index mit \\
+    $n^{\prime} = n \sqrt{ \frac{1}{2}+\frac{1}{2}\sqrt{1+ \left( \frac{\kappa}{\varepsilon_0\varepsilon_r\omega} \right)^2} },\, \gamma = n \sqrt{-\frac{1}{2}+\frac{1}{2}\sqrt{1+ \left( \frac{\kappa}{\varepsilon_0\varepsilon_r\omega} \right)^2} }$\\
+    Feldlösungen:\\
+    $\efeld[uv](\ortsvektor[v], t) = \efeld[uv]_0\euler^{-\frac{\omega}{\lichtgeschw}\gamma \einheitsvek{k}\cdot\ortsvektor[v]} \euler^{\komplex (\omega t - \frac{\omega}{\lichtgeschw}n^{\prime}\einheitsvek{k}\cdot\ortsvektor[v])} = \efeld[uv]_0\euler^{-\wellenzahl^{\prime\prime} \einheitsvek{k}\cdot\ortsvektor[v]} \euler^{\komplex (\omega t - \wellenzahl^{\prime}\einheitsvek{k}\cdot\ortsvektor[v])}$\\
+    $\magflussd[uv] = \frac{\wellenzahl[u]}{\omega} \einheitsvek{k}\times \efeld[uv] = \frac{1}{\lichtgeschw}(n^{\prime}-\komplex\gamma) \einheitsvek{k}\times \efeld[uv] \text{ TEM, nicht in Phase}$
+  \end{minipage}
+};
+%------------ EM-Wellen: leitfähige Medien Header ---------------------
+\node[allgtitle, right=10pt] at (box.north west) {EM-Wellen: leitfähige Medien};
 \end{tikzpicture}
 
 
