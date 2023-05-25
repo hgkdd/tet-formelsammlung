@@ -25,10 +25,6 @@
 \makeatother
 
 
-
-
-
-
 \title{TET Formelsammlung}
 \usepackage[german]{babel}
 \usepackage[utf8]{inputenc}
@@ -808,6 +804,41 @@ $ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Strom
 \node[allgtitle, right=10pt] at (box.north west) {EM-Wellen: leitfähige Medien};
 \end{tikzpicture}
 
+\columnbreak
+
+%------------ EM-Wellen: Reflexion und Brechung ---------------
+\begin{tikzpicture}
+\node [allgbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    \includegraphics[width=.38\columnwidth]{ref-brech-uebersicht.png}
+    \includegraphics[width=.26\columnwidth]{ref-brech-senk-pol.png}
+    \includegraphics[width=.26\columnwidth]{ref-brech-par-pol.png}\\
+    Reflexionsgesetz: $\vartheta_i=\vartheta_r=\vartheta_1$\\
+    Brechungsgesetz (Snellius): $n_1\sin\vartheta_1 = n_2\sin\vartheta_2 \text { mit } \vartheta_2=\vartheta_t$\\
+    Reflexions- und Transmissionskoeff.: $\underline{r} = \frac{\efeld[u]_{0r}}{\efeld[u]_{0i}} \qquad \underline{t} = \frac{\efeld[u]_{0t}}{\efeld[u]_{0i}}$ \\
+    $\underline{r}_\perp = \frac{Z_2\cos\vartheta_1-Z_1\cos\vartheta_2}{Z_1\cos\vartheta_2+Z_2\cos\vartheta_1} , \, 
+    1+\underline{r}_\perp = \underline{t}_\perp = \frac{2 Z_2\cos\vartheta_1}{Z_1\cos\vartheta_2+Z_2\cos\vartheta_1}$\\
+    $\underline{r}_\parallel = \frac{Z_1\cos\vartheta_1-Z_2\cos\vartheta_2}{Z_2\cos\vartheta_2+Z_1\cos\vartheta_1},\, \frac{Z_2}{Z_1}\left(1+\underline{r}_\parallel\right) = \underline{t}_\parallel = \frac{2 Z_2\cos\vartheta_1}{Z_2\cos\vartheta_2+Z_1\cos\vartheta_1}$\\
+    Übergang Luft - Metall: $\underline{r}_\perp \simeq -1, \, \underline{t}_\perp \simeq 0, \, \underline{r}_\parallel \simeq +1 ,\,\underline{t}_\parallel \simeq 0$\\
+    mit $n$:\\
+    $\underline{r}_\perp = \frac{n_1\cos\vartheta_1-\frac{\mu_1}{\mu_2} n_2\cos\vartheta_2}{n_1\cos\vartheta_1+\frac{\mu_1}{\mu_2} n_2\cos\vartheta_2},\,
+    \underline{t}_\perp = \frac{2 n_1\cos\vartheta_1}{n_1\cos\vartheta_1+\frac{\mu_1}{\mu_2} n_2\cos\vartheta_2}$\\
+    $\underline{r}_\parallel = \frac{-n_1\cos\vartheta_2+\frac{\mu_1}{\mu_2} n_2\cos\vartheta_1}{n_1\cos\vartheta_2+\frac{\mu_1}{\mu_2} n_2\cos\vartheta_1},\,
+    \underline{t}_\parallel = \frac{2 n_1\cos\vartheta_1}{n_1\cos\vartheta_2+\frac{\mu_1}{\mu_2} n_2\cos\vartheta_1}$\\
+    mit $\mu_1=\mu_2$:\\
+    $\underline{r}_\perp = \frac{\sin\left(\vartheta_2-\vartheta_1\right)}{\sin\left(\vartheta_1+\vartheta_2\right)}, \, \underline{t}_\perp = \frac{2\sin\vartheta_2\cos\vartheta_1}{\sin\left(\vartheta_1+\vartheta_2\right)}$\\
+    $\underline{r}_\parallel = \frac{\tan\left(\vartheta_1-\vartheta_2\right)}{\tan\left(\vartheta_1+\vartheta_2\right)}, \, \underline{t}_\parallel = \frac{2\sin\vartheta_2\cos\vartheta_1}{\sin\left(\vartheta_1+\vartheta_2\right) \cos\left(\vartheta_1-\vartheta_2\right)}$\\
+    Brewster-Winkel: $\underline{r}_\parallel = 0$ für $\vartheta_1+\vartheta_2 = \frac{\pi}{2} \Rightarrow \wellenzahl[v]_r \perp \wellenzahl[v]_t, \, \tan\vartheta_1=\frac{n_2}{n_1}$\\
+    Totalreflexion ($n_1 > n_2$): $\sin\vartheta_{\text{1G}} = \frac{n_2}{n_1}$\\
+    Feld im Medium 2 bei Totalreflexion:\\
+    $\efeld[uv]_t = t \efeld[u]_{0i} \euler^{-\alpha z} \euler^{\komplex\left(\omega t - \beta x \right)}\einheitsvek{E_t} $ evaneszenter Mode\\
+    $\poyvec[uv] = \frac{1}{2 Z_2 k_2} \left|t \efeld[u]_{0i} \right|^2 \euler^{-2\alpha z}\left( \beta \einheitsvek{x} +\komplex \alpha \einheitsvek{z}\right)$\\
+    $\alpha = \wellenzahl_2 \sqrt{\left(\frac{n_1}{n_2}\right)^2 \sin^2\vartheta_1-1},\, \beta = \wellenzahl_2 \frac{n_1}{n_2} \sin\vartheta_1$
+  \end{minipage}
+};
+%------------ EM-Wellen: Relexion und Brechung ---------------------
+\node[allgtitle, right=10pt] at (box.north west) {EM-Wellen: Reflexion und Brechung};
+\end{tikzpicture}
 
 
 \end{multicols*}
