@@ -658,7 +658,7 @@ $ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Strom
 \begin{tikzpicture}
 \node [allgbox] (box){%
   \begin{minipage}{0.3\textwidth}
-    $ \laplace\Psi (\ortsvektor[v], t) - \frac{1}{\geschw_{c}^2}\frac{\d ^2}{\d t^2}\Psi (\ortsvektor[v], t) = 0$\\
+    $ \square\Psi(\ortsvektor[v],t) = \laplace\Psi (\ortsvektor[v], t) - \frac{1}{\geschw_{c}^2}\frac{\d ^2}{\d t^2}\Psi (\ortsvektor[v], t) = 0$\\
     $ \Psi (\ortsvektor[v], t) = \sum\limits_\omega \left( \Psi_+ (\omega t + \wellenzahl[v]\cdot\ortsvektor[v]) + \Psi_- (\omega t - \wellenzahl[v]\cdot\ortsvektor[v]) \right), \; \wellenzahl[v] = \frac{\omega}{\geschw_{c}} \vec{e}_{\wellenzahl} $\\
     Phasengeschwindigkeit: $\geschw_p = \frac{\omega}{\wellenzahl}$
   \end{minipage}
@@ -676,7 +676,7 @@ $ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Strom
     Geschwindigkeiten: $\geschw_{\mathrm{p}}= f \cdot \lambda = \geschw_{c} = (\lichtgeschw \text{ für } \varepsilon = \varepsilon_0, \mu = \mu_0) $\\
     Hinlaufende (-) und rücklaufende (+) Welle:\\
     $\efeld[uv] = \efeld[uv]_0 \euler^{\komplex(\omega t \mp \wellenzahl[v]\cdot\ortsvektor[v])}, \quad \magflussd[uv] = \magflussd[uv]_0 \euler^{\komplex(\omega t \mp \wellenzahl[v]\cdot\ortsvektor[v])}$\\
-    $\magflussd[uv] = \pm \frac{1}{\omega} \wellenzahl[v] \times\efeld[uv]= \pm \frac{1}{\geschw_{\mathrm{p}}}\vec{e}_{\wellenzahl} \times\efeld[uv], \; \efeld[uv] = \mp \frac{\geschw_{\mathrm{p}}^2}{\omega} \wellenzahl[v] \times\magflussd[uv]= \mp \geschw_{\mathrm{p}}\vec{e}_{\wellenzahl} \times\magflussd[uv]$\\
+    $\magflussd[uv] = \pm \frac{1}{\omega} \wellenzahl[v] \times\efeld[uv]= \pm \frac{1}{\geschw_{\mathrm{p}}}\vec{e}_{\wellenzahl} \times\efeld[uv], \; \efeld[uv] = \mp \frac{\geschw_{\mathrm{p}}^2}{\omega} \wellenzahl[v] \times\magflussd[uv]= \mp \geschw_{\mathrm{p}}\vec{e}_{\wellenzahl} \times\magflussd[uv]$, TEM\\
     $\frac{\abs{\efeld[uv]}}{\abs{\magflussd[uv]}} = \geschw_{\mathrm{p}} = \geschw_{\mathrm{c}} = \frac{1}{\sqrt{\varepsilon\mu}}, \; \frac{\abs{\efeld[uv]}}{\abs{\magfeld[uv]}} = \mu \geschw_{\mathrm{p}} = \mu \geschw_{\mathrm{c}} = \sqrt{\frac{\mu}{\varepsilon}} = Z \text{ (Impedanz)}$
     
   \end{minipage}
@@ -684,6 +684,90 @@ $ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Strom
 %------------ Harmonische ebene Wellen Header ---------------------
 \node[allgtitle, right=10pt] at (box.north west) {Harmonische ebene Wellen};
 \end{tikzpicture}
+
+
+%------------ Polarisation ebenen Wellen ---------------
+\begin{tikzpicture}
+\node [allgbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    Betrachte Propagation in $+z$-Richtung:\\
+    $\efeld[uv] = \left( \efeld[u]_{0x}\einheitsvek{x} + \efeld[u]_{0y}\einheitsvek{y}\right)\euler^{\komplex ( \omega t - \wellenzahl z)}, \; \magflussd[uv] = \frac{1}{\geschw_{\mathrm{p}}}\vec{e}_{z} \times\efeld[uv] $\\
+    $\efeld[u]_{0x} = \vert \efeld[u]_{0x} \vert \cdot \euler^{\komplex \varphi_x}\; \efeld[u]_{0y} = \vert \efeld[u]_{0y} \vert \cdot \euler^{\komplex( \varphi_x + \delta)} $\\
+    \textbf{Lineare Polarisation:} $\delta = m\pi ,\; m \in\IZ$\\
+    Pol.-winkel: $\tan \alpha = \pm \tfrac{|\efeld[u]_{0y}|}{|\efeld[u]_{0x}|}, \; \text{+: } \delta=2m\pi ,\; \text{-: } \delta = (2m+1)\pi$\\
+    \textbf{Zirkulare Polarisation:} $\delta = (2m+1) \frac{\pi}{2}, \; m \in \IZ , \; \vert \efeld_{0x} \vert = \vert \efeld_{0y} \vert$\\
+    rechts: $\delta = -\tfrac{\pi}{2}+m(2\pi)$, links: $\delta = \tfrac{\pi}{2}+m(2\pi)$\\
+    \textbf{Elliptische Polarisation:} $\delta = (2m+1) \frac{\pi}{2}, \; m \in \IZ , \; \vert \efeld_{0x} \vert \ne \vert \efeld_{0y} \vert$\\
+    rechts: $\delta = -\tfrac{\pi}{2}+m(2\pi)$, links: $\delta = \tfrac{\pi}{2}+m(2\pi)$\\
+    Hauptachsen sind die Koordinatenachsen\\
+    $\delta$ beliebig und $\vert \efeld_{0x} \vert \ne \vert \efeld_{0y} \vert$: elliptisch, Achsen gedreht
+  \end{minipage}
+};
+%------------ Polarisation ebene Wellen Header ---------------------
+\node[allgtitle, right=10pt] at (box.north west) {Polarisation ebene Wellen};
+\end{tikzpicture}
+
+%------------ harmonisches Wellenpaket Wellen ---------------
+\begin{tikzpicture}
+\node [allgbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $\Psi (\ortsvektor[v], t) = \int\limits_{-\infty}^\infty \underline{A}(k) \euler^{\komplex (\omega t - \wellenzahl z)} \upd \wellenzahl\; , \underline{A}(-k) = \underline{A}^\star(k)$, oft: $\underline{A}(k) = A(k)$\\
+    konzentiert um $\wellenzahl_0$: $A(\wellenzahl) \ll A(\wellenzahl_0)$ für $|\wellenzahl-\wellenzahl_0| \gg \text{Breite von }A$\\
+    $\to \omega(\wellenzahl) \cong \omega_0  + \geschw_{\mathrm{g}}(\wellenzahl-\wellenzahl_0), \; \omega_0=\omega(\wellenzahl_0),\; \geschw_{\mathrm{g}} = \left.\frac{\upd \omega}{\upd \wellenzahl}\right|_{\wellenzahl_0}$\\
+    $\Psi (\ortsvektor[v], t) \cong \int\limits_{-\infty}^{\infty} A(\wellenzahl_0 + q)\euler^{\komplex q (\geschw_{\mathrm{g}} t - z)}\upd q \,\euler^{\komplex ( \omega_0 t - \wellenzahl_0 z)}$\\$\text{\ \ \ \ \ \ \ \ \ }  = H(\geschw_{\mathrm{g}} t -z) \,\euler^{\komplex (\omega_0 t - \wellenzahl_0 z)}$
+  \end{minipage}
+};
+%------------ harmonisches Wellenpaket Header ---------------------
+\node[allgtitle, right=10pt] at (box.north west) {Wellenpaket, harmonisch, $+z$-Richtung};
+\end{tikzpicture}
+
+%------------ Kugelwellen ---------------
+\begin{tikzpicture}
+\node [allgbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $\square\Psi(\ortsvektor[v],t) = 0$ mit $\Psi(\ortsvektor[v],t) = \Psi(\ortsvektor,t) \to \left(\frac{\d^2}{\d r^2} - \frac{1}{\geschw_c^2}\frac{\d^2}{\d t^2}\right)(r\Psi) = 0$\\
+    $r\Psi$ wie ebene Wellen in 1D, ein- und auslaufende Kugelwellen\\
+    lokal wieder TEM
+  \end{minipage}
+};
+%------------ Kugelwellen Header ---------------------
+\node[allgtitle, right=10pt] at (box.north west) {Kugelwellen};
+\end{tikzpicture}
+
+%------------ TE, TM ---------------
+\begin{tikzpicture}
+\node [allgbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    z.B. Überlagerung von TEM-Wellen unterschiedlicher $\vec{e}_{\wellenzahl_i}$\\
+    TM: nur $\magflussd[v] \perp \vec{e}_{\wellenzahl}$, TE: nur $\efeld[v] \perp \vec{e}_{\wellenzahl}$; $\geschw_p \ge \geschw_c $
+  \end{minipage}
+};
+%------------ TE TM Header ---------------------
+\node[allgtitle, right=10pt] at (box.north west) {TE und TM Wellen};
+\end{tikzpicture}
+
+\columnbreak
+
+%------------ Allgemeine Lösung der homogenen Wellengleichung mit Anfangswerten ---------------
+\begin{tikzpicture}
+\node [allgbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $\square\Psi(\ortsvektor[v],t) = 0$ mit $\Psi(\ortsvektor[v],t=0) = \Psi_0(\ortsvektor[v]), \;
+    \left.\frac{\d \Psi(\ortsvektor[v],t)}{\d t}\right|_{t=0} = \dot{\Psi}_0(\ortsvektor[v])$\\
+    $\Psi(\ortsvektor[v], t) = \frac{1}{(2\pi)^n}\int_{\mathbb{R}^n} \left[ \tilde{\Psi}_0(\wellenzahl[v]) \cos(\wellenzahl\geschw_ct) + \tilde{\dot{\Psi}}_0(\wellenzahl[v]) \frac{\sin(\wellenzahl\geschw_ct)}{\wellenzahl\geschw_c} \right]\euler^{\komplex \wellenzahl[v]\cdot\ortsvektor[v]} \upd^n k $\\ 
+    $\tilde{\Psi}_0(\wellenzahl[v]) = \int_{\mathbb{R}^n} \Psi_0 (\ortsvektor[v]) \euler^{-\komplex \wellenzahl[v]\cdot\ortsvektor[v]} \upd^n r ,\; \tilde{\dot{\Psi}}_0(\wellenzahl[v]) = \int_{\mathbb{R}^n} \dot{\Psi}_0 (\ortsvektor[v]) \euler^{-\komplex \wellenzahl[v]\cdot\ortsvektor[v]} \upd^n r$\\
+    Kirchhoffsche Lösung (n=3):
+    \begin{align*}
+      \Psi(\ortsvektor[v], t) = & \frac{\d}{\d t} \left[ \frac{t}{4\pi R^2(t)} \oiint_{O(K_{R(t)})} \Psi_0(\ortsvektor[v]+\ortsvektor[v]') \upd^2 r' \right] \\ 
+                                & + \left[ \frac{t}{4\pi R^2(t)} \oiint_{O(K_{R(t)})} \dot{\Psi}_0(\ortsvektor[v]+\ortsvektor[v]') \upd^2 r' \right]\end{align*}
+    d'Alembertsche Lösung (n=1):\\
+    $\Psi(\ortsvektor[v], t) = \tfrac{1}{2} \Psi_0(z+\geschw_c t) + \tfrac{1}{2} \Psi_0(z-\geschw_c t) + \tfrac{1}{2 \geschw_c} \int_{z-\geschw_c t}^{z+\geschw_c t} \dot{\Psi}_0(u) \upd u$
+  \end{minipage}
+};
+%------------ Allgemeine Lösung der homogenen Wellengleichung mit Anfangswerten Header ---------------------
+\node[allgtitle, right=10pt] at (box.north west) {Homogene Wellengleichung mit Anfangswerten};
+\end{tikzpicture}
+
 
 
 \end{multicols*}
