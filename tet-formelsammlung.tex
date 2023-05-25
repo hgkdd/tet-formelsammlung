@@ -764,8 +764,23 @@ $ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Strom
     $\Psi(\ortsvektor[v], t) = \tfrac{1}{2} \Psi_0(z+\geschw_c t) + \tfrac{1}{2} \Psi_0(z-\geschw_c t) + \tfrac{1}{2 \geschw_c} \int_{z-\geschw_c t}^{z+\geschw_c t} \dot{\Psi}_0(u) \upd u$
   \end{minipage}
 };
-%------------ Allgemeine Lösung der homogenen Wellengleichung mit Anfangswerten Header ---------------------
+
+% ------------ Allgemeine Lösung der homogenen Wellengleichung mit Anfangswerten Header ---------------------
 \node[allgtitle, right=10pt] at (box.north west) {Homogene Wellengleichung mit Anfangswerten};
+\end{tikzpicture}
+
+%------------ EM-Wellen: Energie, Impuls ---------------
+\begin{tikzpicture}
+\node [allgbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $\efeld[uv](\ortsvektor[v], t)  =\efeld[uv]_0\euler^{\komplex(\omega t - \wellenzahl[v]\cdot\ortsvektor[v])};\quad \magflussd[uv](\ortsvektor[v], t)  =\magflussd[uv]_0\euler^{\komplex(\omega t - \wellenzahl[v]\cdot\ortsvektor[v])} = \tfrac{1}{\omega} \wellenzahl[v] \times \efeld[uv]$\\
+    $\langle \energiedichte_{\text{em}}(\ortsvektor[v], t)\rangle = \frac{1}{2} \varepsilon |\efeld[uv]_0|^2 = \frac{1}{2} \frac{1}{\mu} |\magflussd[uv]_0|^2$\\
+    $\langle \poyvec[v](\ortsvektor[v], t)\rangle = \frac{1}{2} \sqrt{\frac{\varepsilon}{\mu}} |\efeld[uv]_0|^2 \einheitsvek{k} = \geschw_p \langle \energiedichte_{\text{em}}\rangle\; \einheitsvek{k} = \frac{1}{2} \frac{1}{Z} |\efeld[uv]_0|^2 \einheitsvek{k}$\\
+    $\langle \impulsdichte^{em} \rangle = \varepsilon\mu\langle \poyvec[v] \rangle = \frac{1}{\geschw_c^2} \geschw_p \langle \energiedichte_{\text{em}}\rangle\; \einheitsvek{k} = \frac{1}{\geschw_c} \langle \energiedichte_{\text{em}}\rangle\; \einheitsvek{k}$
+  \end{minipage}
+};
+%------------ EM-Wellen: Energie und Impuls Header ---------------------
+\node[allgtitle, right=10pt] at (box.north west) {EM-Wellen: Energie und Impuls};
 \end{tikzpicture}
 
 
