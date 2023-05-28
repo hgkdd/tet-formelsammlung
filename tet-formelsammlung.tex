@@ -271,6 +271,25 @@ $
 \end{tikzpicture}
 
 
+% ------------ Konstanten ---------------
+\begin{tikzpicture}
+\node [allgbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $\varepsilon_0 = \qty{8.8541878128(13)e-12}{\ampere\second\per\volt\per\meter}$\\
+    $\mu_0 = \qty{1.25663706212(19)e-6}{\volt\second\per\ampere\per\meter}$ \\
+    $\text{\ \ \ }\simeq 4\pi\cdot 10^{-7}\unit{\volt\second\per\ampere\per\meter}$\\
+    $c = 1/\sqrt{\varepsilon_0\mu_0} = \qty{299792458}{\meter\per\second}\simeq \qty{3e8}{\meter\per\second}$\\
+    $Z_0 = \mu_0c = \sqrt{\mu_0/\varepsilon_0} = \qty{3.76730313667(57)e2}{\ohm}\simeq 120\pi\unit{\ohm}$
+  \end{minipage}
+};
+%------------ Konstanten Header ---------------------
+\node[allgtitle, right=10pt] at (box.north west) {Konstanten};
+\end{tikzpicture}
+
+
+
+
+
 %------------ Greensche-Funktionern ---------------
 \begin{tikzpicture}
 \node [estatbox] (box){%
