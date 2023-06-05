@@ -17,6 +17,7 @@
 \usepackage{amsmath,amssymb}
 \usepackage{enumitem}
 \usepackage{siunitx}
+\usepackage{nicefrac}
 \makeatletter
 
 \newcommand*\bigcdot{\mathpalette\bigcdot@{.5}}
@@ -857,6 +858,36 @@ $ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Strom
 };
 %------------ EM-Wellen: Relexion und Brechung ---------------------
 \node[allgtitle, right=10pt] at (box.north west) {EM-Wellen: Reflexion und Brechung};
+\end{tikzpicture}
+
+
+%------------ Retardierte Greensche Funktion und Potentiale ---------------
+\begin{tikzpicture}
+\node [allgbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $G_{\text{ret}}(\ortsvektor[v]-\ortsvektor[vs], t - t') = \frac{\delta(t'-t_{\text{ret}})}{4\pi |\ortsvektor[v]-\ortsvektor[vs]|}, \, t_{\text{ret}} = t - \frac{|\ortsvektor[v]-\ortsvektor[vs]|}{\geschw_c}$\\
+    In Lorenz-Eichung:\\
+    $\elpotential (\ortsvektor[v], t) = \frac{1}{4\pi\varepsilon} \iiint_V \frac{\laddichte{V}\left(\ortsvektor[vs], t-t_{\text{ret}}\right)}{|\ortsvektor[v]-\ortsvektor[vs]|} \upd^3\ortsvektor[s]$\\
+    $\magvekpot[v] (\ortsvektor[v], t) = \frac{\mu}{4\pi} \iiint_V \frac{\elstromdichte[v]\left(\ortsvektor[vs], t-t_{\text{ret}}\right)}{|\ortsvektor[v]-\ortsvektor[vs]|} \upd^3\ortsvektor[s]$\\
+    Lsg. außerhalb Quellgebiet, harm. Anregung:\\
+    $\magvekpot[uv] (\ortsvektor[v]) = \frac{\mu}{4\pi} \iiint_V \frac{\euler^{-\komplex \wellenzahl |\ortsvektor[v]-\ortsvektor[vs]|}}{|\ortsvektor[v]-\ortsvektor[vs]|} \elstromdichte[uv](\ortsvektor[vs]) \upd^3 \ortsvektor[s]\to \text{Nah- und Fernzone}$
+  \end{minipage}
+};
+%------------ Retardierte Greensche Funktion und Potentiale ---------------------
+\node[allgtitle, right=10pt] at (box.north west) {Retardierte Greensche Funktion und Potentiale};
+\end{tikzpicture}
+
+%------------ Linearantennen ---------------
+\begin{tikzpicture}
+\node [allgbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    LE, harm. Anregung, dünner Leiter, Länge $\ell$, z.B. $z$-Richtung:\\
+    $\elstromdichte[uv](\ortsvektor[vs]) \upd^3 \ortsvektor[s] = \underline{I}(\ortsvektor[vs])\einheitsvek{z}\upd z^\prime$\\
+$\magvekpot[uv](\ortsvektor[v]) = \frac{\mu}{4\pi} \int_{-\nicefrac{\ell}{2}}^{\nicefrac{\ell}{2}} \frac{\euler^{-\komplex\wellenzahl |\ortsvektor[v]-\ortsvektor[vs]|}}{|\ortsvektor[v]-\ortsvektor[vs]|} \underline{I}(\ortsvektor[vs])\einheitsvek{z}\upd z^\prime$
+  \end{minipage}
+};
+%------------ Linearantennen ---------------------
+\node[allgtitle, right=10pt] at (box.north west) {Linearantennen};
 \end{tikzpicture}
 
 
