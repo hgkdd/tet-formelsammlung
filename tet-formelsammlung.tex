@@ -883,7 +883,9 @@ $ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Strom
   \begin{minipage}{0.3\textwidth}
     LE, harm. Anregung, dünner Leiter, Länge $\ell$, z.B. $z$-Richtung:\\
     $\elstromdichte[uv](\ortsvektor[vs]) \upd^3 \ortsvektor[s] = \underline{I}(\ortsvektor[vs])\einheitsvek{z}\upd z^\prime$\\
-$\magvekpot[uv](\ortsvektor[v]) = \frac{\mu}{4\pi} \int_{-\nicefrac{\ell}{2}}^{\nicefrac{\ell}{2}} \frac{\euler^{-\komplex\wellenzahl |\ortsvektor[v]-\ortsvektor[vs]|}}{|\ortsvektor[v]-\ortsvektor[vs]|} \underline{I}(\ortsvektor[vs])\einheitsvek{z}\upd z^\prime$
+    $\magvekpot[uv](\ortsvektor[v]) = \frac{\mu}{4\pi} \int_{-\nicefrac{\ell}{2}}^{\nicefrac{\ell}{2}} \frac{\euler^{-\komplex\wellenzahl |\ortsvektor[v]-\ortsvektor[vs]|}}{|\ortsvektor[v]-\ortsvektor[vs]|} \underline{I}(\ortsvektor[vs])\einheitsvek{z}\upd z^\prime$\\
+    Allg.: $\upd\magfeld[uv](\ortsvektor[v]) = \frac{1}{4\pi} \underline{I}(\ortsvektor[vs]) \left( \upd\ortsvektor[vs] \times \frac{\ortsvektor[v]-\ortsvektor[vs]}{|\ortsvektor[v]-\ortsvektor[vs]|} \right) \left(\frac{1}{|\ortsvektor[v]-\ortsvektor[vs]|} +\komplex\wellenzahl \right) \frac{\euler^{-\komplex\wellenzahl |\ortsvektor[v]-\ortsvektor[vs]|}}{|\ortsvektor[v]-\ortsvektor[vs]|}$\\
+    Fernfeld: $\upd\magfeld[uv](\ortsvektor[v]) = \frac{\komplex\wellenzahl}{4\pi} \underline{I}(\ortsvektor[vs]) \left( \upd\ortsvektor[vs] \times \frac{\ortsvektor[v]}{\ortsvektor} \right) \frac{\euler^{-\komplex\wellenzahl \ortsvektor}}{\ortsvektor} \euler^{\komplex\wellenzahl \frac{\ortsvektor[v]\cdot \ortsvektor[vs]}{\ortsvektor}}$
   \end{minipage}
 };
 %------------ Linearantennen ---------------------
@@ -893,6 +895,31 @@ $\magvekpot[uv](\ortsvektor[v]) = \frac{\mu}{4\pi} \int_{-\nicefrac{\ell}{2}}^{\
 
 \end{multicols*}
 
+\newpage
+
+\begin{multicols*}{3}[\textbf{TET Formelsammlung (Prof. H.G. Krauthäuser, TU Dresden, CC0 1.0 Universal) \hfill \thepage}]
+
+%------------ Hertzer Dipol ---------------
+\begin{tikzpicture}
+\node [allgbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    $\magvekpot[uv](\ortsvektor[v]) = \frac{\mu}{4\pi} \underline{I} \ell  \frac{\euler^{-\komplex\wellenzahl\ortsvektor}}{\ortsvektor} \einheitsvek{z} = \magvekpot[u]_z \einheitsvek{z}$\\
+  in Kugelkoordinaten:\\
+  $ \magvekpot[u]_r =  \frac{\mu}{4\pi} \underline{I} \ell  \frac{\euler^{-\komplex\wellenzahl\ortsvektor}}{\ortsvektor} \cos\vartheta,\, \magvekpot[u]_\vartheta =  - \frac{\mu}{4\pi} \underline{I} \ell  \frac{\euler^{-\komplex\wellenzahl\ortsvektor}}{\ortsvektor} \sin\vartheta , \, \magvekpot[u]_\varphi =0$\\
+  $\magfeld[uv] = \frac{1}{4\pi} \frac{\omega^2}{\geschw_p^2}\underline{I} \ell  \euler^{-\komplex\wellenzahl\ortsvektor} \sin\vartheta \left[\frac{1}{(\wellenzahl\ortsvektor)^2}+ \frac{\komplex}{\wellenzahl \ortsvektor} \right]\; \einheitsvek{\varphi}$\\
+  $ \efeld[uv] = \left\{\frac{1}{2\pi} Z \frac{\omega^2}{\geschw_p^2}\underline{I} \ell  \euler^{-\komplex\wellenzahl\ortsvektor} \cos\vartheta\left[\frac{1}{(\wellenzahl\ortsvektor)^2} - \frac{\komplex}{(\wellenzahl\ortsvektor)^3}\right]\right\} \einheitsvek{r} + $\\
+  $\text{\ \ \ \ \ \ } \left\{ \frac{1}{4\pi} Z \frac{\omega^2}{\geschw_p^2}\underline{I} \ell  \euler^{-\komplex\wellenzahl\ortsvektor} \sin\vartheta\left[\frac{\komplex}{\wellenzahl\ortsvektor}  + \frac{1}{(\wellenzahl\ortsvektor)^2} - \frac{\komplex}{(\wellenzahl\ortsvektor)^3} \right] \right\} \einheitsvek{\vartheta}$\\
+  Fernfeld $\wellenzahl \ortsvektor \gg 1$:\\
+  $ \magfeld[uv]= \magfeld[u]_\varphi \; \einheitsvek{\varphi} = \frac{\komplex}{4\pi} \frac{\omega^2}{\geschw_p^2}\underline{I} \ell  \frac{\euler^{-\komplex\wellenzahl\ortsvektor}}{\wellenzahl\ortsvektor} \sin\vartheta \; \einheitsvek{\varphi}$\\
+  $\efeld[uv] = \efeld[u]_\vartheta \; \einheitsvek{\vartheta} = Z\; \magfeld[u]_\varphi \; \einheitsvek{\vartheta}, \, Z=\frac{|\efeld[uv]|}{|\magfeld[uv]|} = \sqrt{\frac{\mu}{\varepsilon}} = \frac{\wellenzahl}{\omega\varepsilon}$\\
+  $\poyvec[uv]  = \frac{1}{2} Z \left( \frac{1}{4\pi} \frac{\omega^2}{\geschw_p^2}\frac{|\underline{I}| \ell}{\wellenzahl\ortsvektor} \right)^2 \left(\sin\vartheta\right)^2 \; \einheitsvek{r} = \poyvec_r(r,\vartheta) \; \einheitsvek{r} = \langle \poyvec[v] \rangle$\\
+  $ D(\vartheta,\varphi) = \frac{\poyvec_r(r,\vartheta, \varphi)}{P_{\text{iso}}} = \frac{3}{2} \sin^2\vartheta \; ; \; D_{\text{max}} = D(\vartheta=\frac{\pi}{2}) = \frac{3}{2} $
+  \end{minipage}
+};
+%------------ Hertzscher Dipol Header ---------------------
+\node[allgtitle, right=10pt] at (box.north west) {Hertzscher Dipol, am Ursprung, in $z$-Richtung};
+\end{tikzpicture}
+\end{multicols*}
 
 
 \end{document}
