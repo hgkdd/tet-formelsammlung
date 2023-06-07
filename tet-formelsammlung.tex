@@ -18,6 +18,8 @@
 \usepackage{enumitem}
 \usepackage{siunitx}
 \usepackage{nicefrac}
+
+
 \makeatletter
 
 \newcommand*\bigcdot{\mathpalette\bigcdot@{.5}}
@@ -39,6 +41,9 @@
 \parskip2pt
 \newcommand{\hr}{\centerline{\rule{3.5in}{1pt}}}
 %\colorbox[HTML]{e4e4e4}{\makebox[\textwidth-2\fboxsep][l]{texto}
+
+\newcommand{\tetmark}{DRAFT}
+
 \begin{document}
 
 \tikzstyle{allgbox} = [draw=black, fill=white, very thick,
@@ -62,7 +67,7 @@
 \tikzstyle{quastattitle} =[fill=magenta, text=white, font=\bfseries]
 
 
-\begin{multicols*}{3}[\textbf{TET Formelsammlung (Prof. H.G. Krauthäuser, TU Dresden, CC0 1.0 Universal) \hfill \thepage}]
+\begin{multicols*}{3}[\textbf{TET Formelsammlung (Prof. H.G. Krauthäuser, TU Dresden, CC0 1.0 Universal) \hfill\tetmark\hfill \thepage}]
 
 %------------ Maxwell Gleichungen ---------------
 \begin{tikzpicture}
@@ -380,7 +385,7 @@ $
 
 \newpage
 
-\begin{multicols*}{3}[\textbf{TET Formelsammlung (Prof. H.G. Krauthäuser, TU Dresden, CC0 1.0 Universal) \hfill \thepage}]
+\begin{multicols*}{3}[\textbf{TET Formelsammlung (Prof. H.G. Krauthäuser, TU Dresden, CC0 1.0 Universal) \hfill\tetmark\hfill \thepage}]
 
 %------------ Stationäre Stromdichte, Strom ---------------
 \begin{tikzpicture}
@@ -668,7 +673,7 @@ $ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Strom
 
 \newpage
 
-\begin{multicols*}{3}[\textbf{TET Formelsammlung (Prof. H.G. Krauthäuser, TU Dresden, CC0 1.0 Universal) \hfill \thepage}]
+\begin{multicols*}{3}[\textbf{TET Formelsammlung (Prof. H.G. Krauthäuser, TU Dresden, CC0 1.0 Universal) \hfill\tetmark\hfill \thepage}]
 
 %------------ Homogene Wellengleichung, Ebene Wellen ---------------
 \begin{tikzpicture}
@@ -897,7 +902,7 @@ $ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Strom
 
 \newpage
 
-\begin{multicols*}{3}[\textbf{TET Formelsammlung (Prof. H.G. Krauthäuser, TU Dresden, CC0 1.0 Universal) \hfill \thepage}]
+\begin{multicols*}{3}[\textbf{TET Formelsammlung (Prof. H.G. Krauthäuser, TU Dresden, CC0 1.0 Universal) \hfill\tetmark\hfill \thepage}]
 
 %------------ Hertzer Dipol ---------------
 \begin{tikzpicture}
@@ -919,6 +924,33 @@ $ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Strom
 %------------ Hertzscher Dipol Header ---------------------
 \node[allgtitle, right=10pt] at (box.north west) {Hertzscher Dipol, am Ursprung, in $z$-Richtung};
 \end{tikzpicture}
+
+
+%------------ Zylindrische Wellenleiter ---------------
+\begin{tikzpicture}
+\node [allgbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    Homogene Wellengleichung $\to$ Helmholtz-Gleichung:\\
+    $\square \efeld[uv](\ortsvektor[v], t) = \left(\laplace - \varepsilon\mu\frac{\d^2}{\d t^2}\right) \efeld[uv] (\ortsvektor[v], t) = \vec{0} \rightarrow  \left(\laplace + \varepsilon\mu\omega^2\right) \efeld[uv](\ortsvektor[v]) =\vec{0}$\\
+    $\square \magflussd[uv](\ortsvektor[v], t) = \left(\laplace - \varepsilon\mu\frac{\d^2}{\d t^2}\right) \magflussd[uv] (\ortsvektor[v], t) = \vec{0} \rightarrow  \left(\laplace + \varepsilon\mu\omega^2\right) \magflussd[uv](\ortsvektor[v]) =\vec{0}$\\
+    $\einheitsvek{z} \cdot \left(\rotation_t \efeld[uv]_t\right) = -\komplex\omega\magflussd[u]_z, \ \gradient_t \efeld[u]_{z} - \frac{\partial}{\partial z}\efeld[uv]_t = -\komplex\omega \einheitsvek{z}\times \magflussd[uv]_t$\\
+    $ \einheitsvek{z} \cdot \left(\rotation_t \magflussd[uv]_t\right) = \komplex\omega\varepsilon\mu\efeld[u]_z ,\  \gradient_t \magflussd[u]_{z} - \frac{\partial}{\partial z}\magflussd[uv]_t = \komplex\omega\varepsilon\mu \einheitsvek{z}\times \efeld[uv]_t$\\
+    entkoppelt ('-': vor; '+': rück); $\gamma^2 = \omega^2\varepsilon\mu - \wellenzahl^2$\\
+    $\gamma^2 \efeld[uv]_t = \komplex \left[ \mp \wellenzahl\, \gradient_t \efeld[u]_{z} + \omega  \einheitsvek{z}\times\gradient_t \magflussd[u]_{z}\right]$\\
+    $\gamma^2 \magflussd[uv]_t = \komplex \left[ \mp \wellenzahl\, \gradient_t \magflussd[u]_{z} - \omega\varepsilon\mu  \einheitsvek{z}\times\gradient_t \efeld[u]_{z}\right]$\\
+    TEM: $\efeld[u]_{z} = \magflussd[u]_{z} = \vec{0}\to \gamma^2=0$, oder triviale Lösung\\
+    \text{\ \ \ \ \ \ \ \ }$\efeld[uv] =\efeld[uv]_t= -\gradient\elpotential$ mit $\laplace_t \elpotential = \laplace_t \elpotential_t = 0$\\
+    \text{\ \ \ \ \ \ \ \ }$ \magflussd[uv] = \pm \sqrt{\varepsilon\mu}\, \einheitsvek{z}\times\efeld[uv] \quad \text{ ('+' = hin)}$\\
+    \text{\ \ \ \ \ \ \ \ }$\magfeld[uv] = \pm \frac{1}{Z}\, \einheitsvek{z}\times\efeld[uv] \quad\text{ ('+' = hin)}$\\
+    TM/TE: $\magflussd[u]_z = 0$ bzw. $\efeld[u]_z = 0$, $\gamma^2\ne 0$\\
+    \text{\ \ \ \ \ \ \ \ \ \ \ }$\left(\laplace_t + \gamma^2\right) \efeld[u]_z =  0$ bzw. $\left(\laplace_t + \gamma^2\right) \magfeld[u]_z =  0$ mit Randbed.\\
+    \text{\ \ \ \ \ \ \ \ \ \ \ }Dispersionsrelation: $\wellenzahl_\lambda=\sqrt{\mu\varepsilon}\sqrt{\omega^2-\omega_\lambda^2} \text{ mit } \omega_\lambda=\frac{\gamma_\lambda}{\sqrt{\mu\varepsilon}}$
+  \end{minipage}
+};
+%------------ Zylinderische Wellenleiter Header ---------------------
+\node[allgtitle, right=10pt] at (box.north west) {Zylindrische Wellenleiter, $z$-Richtung, $\kappa = \infty$, harmonisch};
+\end{tikzpicture}
+
 \end{multicols*}
 
 
