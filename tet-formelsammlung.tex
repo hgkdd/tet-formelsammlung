@@ -964,10 +964,10 @@ $ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Strom
     $\frac{\d \spannung[u](z)}{\d z} + \left(R^\prime + \komplex\omega L^\prime\right) \elstrom[u](z)= 0, \; L^\prime = \frac{\mu\int_C\gradient\elpotential \cdot \upd \vec{s}}{\oint_{O(A)} \left(\einheitsvek{z}\times\gradient\elpotential\right) \cdot \upd\vec{s}}$\\
     $\frac{\d \elstrom[u](z)}{\d z} +\left(G^\prime + \komplex\omega C^\prime\right) \spannung[u](z)  = 0,\; C^\prime = \frac{\varepsilon\oint_{O(A)}\left(\einheitsvek{z}\times \gradient\elpotential\right) \cdot \upd \vec{s}}{\int_C \gradient\elpotential\cdot\upd\vec{s}}$\\
     $\geschw_p = \frac{1}{\sqrt{L^\prime C^\prime}}=\frac{1}{\sqrt{\varepsilon\mu}}$\\
-    entkoppelt: $ \frac{\d^2 \spannung[u](z)}{\d z^2} + \omega^2 Z^\prime Y^\prime \spannung[u](z) = 0,\; \frac{\d^2 \elstrom[u](z)}{\d z^2} + \omega^2 Z^\prime Y^\prime \elstrom[u](z) = 0 $\\
-    $\gamma = \sqrt{Z^\prime Y^\prime} = \sqrt{\left(R^\prime + \komplex\omega L^\prime\right) \left(G^\prime + \komplex\omega C^\prime\right)} \text{ Ausbreitungskonstante}$\\
+    entkoppelt: $ \frac{\d^2 \spannung[u](z)}{\d z^2} - Z^\prime Y^\prime \spannung[u](z) = 0,\; \frac{\d^2 \elstrom[u](z)}{\d z^2} - Z^\prime Y^\prime \elstrom[u](z) = 0 $\\
+     Ausbreitungskonstante: $\gamma = \sqrt{Z^\prime Y^\prime} = \sqrt{\left(R^\prime + \komplex\omega L^\prime\right) \left(G^\prime + \komplex\omega C^\prime\right)}$\\
     Lösungen: $\spannung[u](z) = u_1 \euler^{-\gamma z} + u_2 \euler^{+\gamma z}$ Randbed. beachten\\
-    \text{\phantom{Lösungen: }}$\elstrom[u](z) = \frac{1}{Z_L} \left( u_1 \euler^{-\gamma z} - u_2 \euler^{\gamma z}\right)$\\
+    \text{\phantom{Lösungen: }}$\elstrom[u](z) = \frac{1}{Z_L} \left( u_1 \euler^{-\gamma z} - u_2 \euler^{+\gamma z}\right)$\\
     Leitungswellenwiderstand: $Z_L= \frac{Z^\prime}{\gamma} = \sqrt{\frac{Z^\prime}{Y^\prime}} = \sqrt{\frac{R^\prime + \komplex\omega L^\prime}{G^\prime + \komplex\omega C^\prime}}$
   \end{minipage}
 };
