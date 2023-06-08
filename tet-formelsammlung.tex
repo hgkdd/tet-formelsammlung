@@ -939,17 +939,43 @@ $ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Strom
     $\gamma^2 \efeld[uv]_t = \komplex \left[ \mp \wellenzahl\, \gradient_t \efeld[u]_{z} + \omega  \einheitsvek{z}\times\gradient_t \magflussd[u]_{z}\right]$\\
     $\gamma^2 \magflussd[uv]_t = \komplex \left[ \mp \wellenzahl\, \gradient_t \magflussd[u]_{z} - \omega\varepsilon\mu  \einheitsvek{z}\times\gradient_t \efeld[u]_{z}\right]$\\
     TEM: $\efeld[u]_{z} = \magflussd[u]_{z} = \vec{0}\to \gamma^2=0$, oder triviale Lösung\\
-    \text{\ \ \ \ \ \ \ \ }$\efeld[uv] =\efeld[uv]_t= -\gradient\elpotential$ mit $\laplace_t \elpotential = \laplace_t \elpotential_t = 0$\\
-    \text{\ \ \ \ \ \ \ \ }$ \magflussd[uv] = \pm \sqrt{\varepsilon\mu}\, \einheitsvek{z}\times\efeld[uv] \quad \text{ ('+' = hin)}$\\
-    \text{\ \ \ \ \ \ \ \ }$\magfeld[uv] = \pm \frac{1}{Z}\, \einheitsvek{z}\times\efeld[uv] \quad\text{ ('+' = hin)}$\\
+    \text{\phantom{TEM: }}$\efeld[uv] =\efeld[uv]_t= -\gradient\elpotential$ mit $\laplace_t \elpotential = \laplace_t \elpotential_t = 0$\\
+    \text{\phantom{TEM: }}$ \magflussd[uv] = \pm \sqrt{\varepsilon\mu}\, \einheitsvek{z}\times\efeld[uv] \quad \text{ ('+' = hin)}$\\
+    \text{\phantom{TEM: }}$\magfeld[uv] = \pm \frac{1}{Z}\, \einheitsvek{z}\times\efeld[uv] \quad\text{ ('+' = hin)}$\\
     TM/TE: $\magflussd[u]_z = 0$ bzw. $\efeld[u]_z = 0$, $\gamma^2\ne 0$\\
-    \text{\ \ \ \ \ \ \ \ \ \ \ }$\left(\laplace_t + \gamma^2\right) \efeld[u]_z =  0$ bzw. $\left(\laplace_t + \gamma^2\right) \magfeld[u]_z =  0$ mit Randbed.\\
-    \text{\ \ \ \ \ \ \ \ \ \ \ }Dispersionsrelation: $\wellenzahl_\lambda=\sqrt{\mu\varepsilon}\sqrt{\omega^2-\omega_\lambda^2} \text{ mit } \omega_\lambda=\frac{\gamma_\lambda}{\sqrt{\mu\varepsilon}}$
+    \text{\phantom{TM/TE: }}$\left(\laplace_t + \gamma^2\right) \efeld[u]_z =  0$ bzw. $\left(\laplace_t + \gamma^2\right) \magfeld[u]_z =  0$ mit Randbed.\\
+    \text{\phantom{TM/TE: }}Dispersionsrelation: $\wellenzahl_\lambda=\sqrt{\mu\varepsilon}\sqrt{\omega^2-\omega_\lambda^2} \text{ mit } \omega_\lambda=\frac{\gamma_\lambda}{\sqrt{\mu\varepsilon}}$
   \end{minipage}
 };
 %------------ Zylinderische Wellenleiter Header ---------------------
 \node[allgtitle, right=10pt] at (box.north west) {Zylindrische Wellenleiter, $z$-Richtung, $\kappa = \infty$, harmonisch};
 \end{tikzpicture}
+
+
+\newcolumn
+
+%------------ Klassische Leitungstheorie ---------------
+\begin{tikzpicture}
+\node [allgbox] (box){%
+  \begin{minipage}{0.3\textwidth}
+    Im Querschnitt:\\
+    $\elpotential=\elpotential(x,y), \laplace\elpotential(x,y) = 0, \,\elpotential = 0 \text{ bzw. } \elpotential = \spannung(z) \text{ auf Leiter}$\\
+    Telegraphengleichungen:\\
+    $\frac{\d \spannung[u](z)}{\d z} + \left(R^\prime + \komplex\omega L^\prime\right) \elstrom[u](z)= 0, \; L^\prime = \frac{\mu\int_C\gradient\elpotential \cdot \upd \vec{s}}{\oint_{O(A)} \left(\einheitsvek{z}\times\gradient\elpotential\right) \cdot \upd\vec{s}}$\\
+    $\frac{\d \elstrom[u](z)}{\d z} +\left(G^\prime + \komplex\omega C^\prime\right) \spannung[u](z)  = 0,\; C^\prime = \frac{\varepsilon\oint_{O(A)}\left(\einheitsvek{z}\times \gradient\elpotential\right) \cdot \upd \vec{s}}{\int_C \gradient\elpotential\cdot\upd\vec{s}}$\\
+    $\geschw_p = \frac{1}{\sqrt{L^\prime C^\prime}}=\frac{1}{\sqrt{\varepsilon\mu}}$\\
+    entkoppelt: $ \frac{\d^2 \spannung[u](z)}{\d z^2} + \omega^2 Z^\prime Y^\prime \spannung[u](z) = 0,\; \frac{\d^2 \elstrom[u](z)}{\d z^2} + \omega^2 Z^\prime Y^\prime \elstrom[u](z) = 0 $\\
+    $\gamma = \sqrt{Z^\prime Y^\prime} = \sqrt{\left(R^\prime + \komplex\omega L^\prime\right) \left(G^\prime + \komplex\omega C^\prime\right)} \text{ Ausbreitungskonstante}$\\
+    Lösungen: $\spannung[u](z) = u_1 \euler^{-\gamma z} + u_2 \euler^{+\gamma z}$ Randbed. beachten\\
+    \text{\phantom{Lösungen: }}$\elstrom[u](z) = \frac{\gamma}{Z^\prime} \left( u_1 \euler^{-\gamma z} - u_2 \euler^{+\gamma z}\right) = \frac{1}{Z_L} \left( u_1 \euler^{-\gamma z} - u_2 \euler^{\gamma z}\right)$\\
+    Leitungswellenwiderstand: $Z_L= \frac{Z^\prime}{\gamma} = \sqrt{\frac{Z^\prime}{Y^\prime}} = \sqrt{\frac{R^\prime + \komplex\omega L^\prime}{G^\prime + \komplex\omega C^\prime}}$
+  \end{minipage}
+};
+%------------ Klassische Leitungstheorie Header ---------------------
+\node[allgtitle, right=10pt] at (box.north west) {Klassische Leitungstheorie};
+\end{tikzpicture}
+
+
 
 \end{multicols*}
 
