@@ -42,7 +42,7 @@
 \newcommand{\hr}{\centerline{\rule{3.5in}{1pt}}}
 %\colorbox[HTML]{e4e4e4}{\makebox[\textwidth-2\fboxsep][l]{texto}
 
-\newcommand{\tetmark}{DRAFT}
+\newcommand{\tetmark}{\today}
 
 \begin{document}
 
@@ -963,12 +963,18 @@ $ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Strom
     Telegraphengleichungen:\\
     $\frac{\d \spannung[u](z)}{\d z} + \left(R^\prime + \komplex\omega L^\prime\right) \elstrom[u](z)= 0, \; L^\prime = \frac{\mu\int_C\gradient\elpotential \cdot \upd \vec{s}}{\oint_{O(A)} \left(\einheitsvek{z}\times\gradient\elpotential\right) \cdot \upd\vec{s}}$\\
     $\frac{\d \elstrom[u](z)}{\d z} +\left(G^\prime + \komplex\omega C^\prime\right) \spannung[u](z)  = 0,\; C^\prime = \frac{\varepsilon\oint_{O(A)}\left(\einheitsvek{z}\times \gradient\elpotential\right) \cdot \upd \vec{s}}{\int_C \gradient\elpotential\cdot\upd\vec{s}}$\\
-    $\geschw_p = \frac{1}{\sqrt{L^\prime C^\prime}}=\frac{1}{\sqrt{\varepsilon\mu}}$\\
-    entkoppelt: $ \frac{\d^2 \spannung[u](z)}{\d z^2} - Z^\prime Y^\prime \spannung[u](z) = 0,\; \frac{\d^2 \elstrom[u](z)}{\d z^2} - Z^\prime Y^\prime \elstrom[u](z) = 0 $\\
-     Ausbreitungskonstante: $\gamma = \sqrt{Z^\prime Y^\prime} = \sqrt{\left(R^\prime + \komplex\omega L^\prime\right) \left(G^\prime + \komplex\omega C^\prime\right)}$\\
+    entkoppelt: $ \frac{\d^2 \spannung[u](z)}{\d z^2} - \gamma^2 \spannung[u](z) = 0,\; \frac{\d^2 \elstrom[u](z)}{\d z^2} - \gamma^2 \elstrom[u](z) = 0 $\\
+    Ausbreitungskonstante: $\gamma = \sqrt{Z^\prime Y^\prime} = \sqrt{\left(R^\prime + \komplex\omega L^\prime\right) \left(G^\prime + \komplex\omega C^\prime\right)}$\\
+    \text{\phantom{Ausbreitungskonstante: $\gamma$ }}$= \alpha + \komplex \beta$\\
     Lösungen: $\spannung[u](z) = u_1 \euler^{-\gamma z} + u_2 \euler^{+\gamma z}$ Randbed. beachten\\
     \text{\phantom{Lösungen: }}$\elstrom[u](z) = \frac{1}{Z_L} \left( u_1 \euler^{-\gamma z} - u_2 \euler^{+\gamma z}\right)$\\
-    Leitungswellenwiderstand: $Z_L= \frac{Z^\prime}{\gamma} = \sqrt{\frac{Z^\prime}{Y^\prime}} = \sqrt{\frac{R^\prime + \komplex\omega L^\prime}{G^\prime + \komplex\omega C^\prime}}$
+    Leitungswellenwiderstand: $Z_L= \frac{Z^\prime}{\gamma} = \sqrt{\frac{Z^\prime}{Y^\prime}} = \sqrt{\frac{R^\prime + \komplex\omega L^\prime}{G^\prime + \komplex\omega C^\prime}}$\\
+    Wellenlänge: $\lambda = \frac{2\pi}{\beta}$, Geschw..: $\geschw_p = \frac{\omega}{\beta},\, \geschw_g = \frac{\upd \omega}{\upd \beta}$\\ 
+    Leitung der Länge $L$, Abschluss $Z_E$, A: Anfang, E: Ende\\
+    Reflexionsfaktor: $r_E = \frac{Z_E - Z_L}{Z_E + Z_L},\ r_A = r_E e^{-2\gamma L}$\\
+    Impedanz:\\
+    $Z_A = Z_L \frac{1+r_A}{1-r_A} = Z_L \frac{1+r_Ee^{-2\gamma L}}{1-r_Ee^{-2\gamma L}}=Z_L \frac{Z_E\cosh(\gamma L) +Z_L\sinh(\gamma L)}{Z_E\sinh(\gamma L) +Z_L\cosh(\gamma L)}$
+    
   \end{minipage}
 };
 %------------ Klassische Leitungstheorie Header ---------------------
