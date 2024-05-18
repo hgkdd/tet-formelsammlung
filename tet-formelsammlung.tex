@@ -409,7 +409,7 @@ $
     Eingeprägte elektrische Feldstärke $\efeld[v]_E$:\\
     $\oint\limits_C \efeld[v]_E \cdot \upd\vec{s} = U$ EMK, Urspannung\\
     $\elstromdichte[v] = \kappa (\efeld[v] + \efeld[v]_E) $\\
-    $\to \oint\limits_C \elstromdichte[v] \cdot \upd\vec{s} = \oint\limits_C \kappa\efeld[v]_E \cdot \upd\vec{s} = \kappa U$ (Kichhoffscher Maschensatz)
+    $\to \oint\limits_C \elstromdichte[v] \cdot \upd\vec{s} = \oint\limits_C \kappa\efeld[v]_E \cdot \upd\vec{s} = \kappa U$ (Kirchhoffscher Maschensatz)
   \end{minipage}
 };
 %------------ EMK Heading---------------------
@@ -835,9 +835,9 @@ $ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Strom
 \begin{tikzpicture}
 \node [allgbox] (box){%
   \begin{minipage}{0.3\textwidth}
-    \includegraphics[width=.38\columnwidth]{ref-brech-uebersicht.png}
-    \includegraphics[width=.26\columnwidth]{ref-brech-senk-pol.png}
-    \includegraphics[width=.26\columnwidth]{ref-brech-par-pol.png}\\
+    \includegraphics[width=.8\columnwidth]{ref-brech-uebersicht.png}\\
+    \includegraphics[width=.5\columnwidth]{ref-brech-senk-pol.png}
+    \includegraphics[width=.5\columnwidth]{ref-brech-par-pol.png}\\
     Reflexionsgesetz: $\vartheta_i=\vartheta_r=\vartheta_1$\\
     Brechungsgesetz (Snellius): $n_1\sin\vartheta_1 = n_2\sin\vartheta_2 \text { mit } \vartheta_2=\vartheta_t$\\
     Reflexions- und Transmissionskoeff.: $\underline{r} = \frac{\efeld[u]_{0r}}{\efeld[u]_{0i}} \qquad \underline{t} = \frac{\efeld[u]_{0t}}{\efeld[u]_{0i}}$ \\
@@ -864,6 +864,11 @@ $ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Strom
 %------------ EM-Wellen: Relexion und Brechung ---------------------
 \node[allgtitle, right=10pt] at (box.north west) {EM-Wellen: Reflexion und Brechung};
 \end{tikzpicture}
+\end{multicols*}
+
+\newpage
+
+\begin{multicols*}{3}[\textbf{TET Formelsammlung (Prof. H.G. Krauthäuser, TU Dresden, CC0 1.0 Universal \cczero) \hfill\tetmark\hfill \thepage}]
 
 
 %------------ Retardierte Greensche Funktion und Potentiale ---------------
@@ -898,11 +903,6 @@ $ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Strom
 \end{tikzpicture}
 
 
-\end{multicols*}
-
-\newpage
-
-\begin{multicols*}{3}[\textbf{TET Formelsammlung (Prof. H.G. Krauthäuser, TU Dresden, CC0 1.0 Universal \cczero) \hfill\tetmark\hfill \thepage}]
 
 %------------ Hertzer Dipol ---------------
 \begin{tikzpicture}
@@ -925,6 +925,7 @@ $ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Strom
 \node[allgtitle, right=10pt] at (box.north west) {Hertzscher Dipol, am Ursprung, in $z$-Richtung};
 \end{tikzpicture}
 
+\newcolumn 
 
 %------------ Zylindrische Wellenleiter ---------------
 \begin{tikzpicture}
@@ -952,7 +953,6 @@ $ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Strom
 \end{tikzpicture}
 
 
-\newcolumn
 
 %------------ Klassische Leitungstheorie ---------------
 \begin{tikzpicture}
