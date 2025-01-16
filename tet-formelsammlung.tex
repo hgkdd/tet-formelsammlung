@@ -570,9 +570,10 @@ $ \magflussd[v](\ortsvektor[v]) = - \frac{\mu}{4\uppi} \oint\limits_{\text{Strom
     $\left\langle P\right\rangle_T  = A \int_0^\infty \frac{1}{\kappa}\frac{\kappa^2\efeld_0^2}{2} \euler^{-2\frac{x}{\delta}}\upd x = A  \frac{\kappa\efeld_0^2}{4} \delta $\\
     Induktion: \\
     $
-    U_{\text{ind}} =\oint_{C(A)} \efeld[v]\cdot\upd\vec{s} = - \frac{\upd }{\upd t} \iint_{A} \magflussd[v] \cdot \upd \vec{A}  = -\dot{\Phi} $\\
-    $U_\text{ind} = \oint\displaylimits_{C(A(t))} \left( \efeld[v] + \vec{v} \times \magflussd[v]\right) \cdot\upd\vec{s} = - \frac{\upd}{\upd t}  \iint_{A(t)} \magflussd[v] \cdot \upd\vec{A}  = -\dot{\Phi}$\\
-    SRT: System S' bewegt sich mit $\vec{v}$ relativ zum System S ($v\ll c$):\\
+    U_{\text{ind}} =\oint_{C(A)} \efeld[v]\cdot\upd\vec{s} = - \frac{\upd }{\upd t} \iint_{A} \magflussd[v] \cdot \upd \vec{A}  = -\frac{\upd \Phi}{\upd t} $\\
+    $U_\text{ind} = \oint\displaylimits_{C(A(t))} \left( \efeld[v] + \vec{v} \times \magflussd[v]\right) \cdot\upd\vec{s} = - \frac{\upd}{\upd t}  \iint_{A(t)} \magflussd[v] \cdot \upd\vec{A} = -\frac{\upd \Phi}{\upd t}$\\
+    $\phantom{U_\text{ind}} = -  \iint_{A(t)}\left(\frac{\partial}{\partial t} \magflussd[v]\right) \cdot \upd\vec{A} + \oint\displaylimits_{C(A(t))} \left(\vec{v} \times \magflussd[v]\right) \cdot\upd\vec{s} = -\frac{\upd \Phi}{\upd t}$\\
+    SRT: System S' bewegt sich mit $\vec{v}$ relativ zum System S ($v\ll c$):
        \begin{align*}
       \efeld[v]_\parallel' & = \efeld[v]_\parallel & \magflussd[v]_\parallel' &= \magflussd[v]_\parallel\\
       \efeld[v]_\perp' &= \efeld[v]_\perp + \vec{v} \times \magflussd[v] & \magflussd[v]_\perp'  & = \magflussd[v]_\perp  
