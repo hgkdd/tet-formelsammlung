@@ -93,10 +93,10 @@
       \end{minipage}
 };
 %------------ Maxwell Header ---------------------
-\node[allgtitle, right=10pt] at (box.north west) {Maxwell Gleichungen};
+\node[allgtitle, right=10pt] at (box.north west) {Maxwell-Gleichungen};
 \end{tikzpicture}
 
-%------------ Material Gleichungen ---------------
+%------------ Materialgleichungen ---------------
 \begin{tikzpicture}
 \node [allgbox] (box){%
   \begin{minipage}{0.3\textwidth}
@@ -109,7 +109,7 @@
       \end{minipage}
 };
 %------------ Material Header ---------------------
-\node[allgtitle, right=10pt] at (box.north west) {Material Gleichungen};
+\node[allgtitle, right=10pt] at (box.north west) {Materialgleichungen};
 \end{tikzpicture}
 
 
@@ -154,16 +154,16 @@ Für Normalenvektor \(\vec{n}\) von \circled{1} nach \circled{2}:
 \node[allgtitle, right=10pt] at (box.north west) {Stetigkeitsbedingungen};
 \end{tikzpicture}
 
-%------------ Othogonalität, Orthomormalität ---------------
+%------------ Orthogonalität, Orthomormalität ---------------
 \begin{tikzpicture}
 \node [allgbox] (box){%
   \begin{minipage}{0.3\textwidth}
     $\langle U_m, U_n\rangle = \int_D U_m^\star (x) U_n(x) \upd x = \delta_{mn} $ \text{ Orthonormalität}\\
-    $\langle U_m, U_n\rangle = \delta_{mn}c_{mn}, \quad c_{mn}\notin \{0,1\} $ \text{ Orthogonatität}
+    $\langle U_m, U_n\rangle = \delta_{mn}c_{mn}, \quad c_{mn}\notin \{0,1\} $ \text{ Orthogonalität}
       \end{minipage}
     };    
 %------------ Orthogonalität Header ---------------------
-\node[allgtitle, right=10pt] at (box.north west) {Orthogonalität, Othonormalität $U_m(x), U_n(x) \in L^2(D)$};
+\node[allgtitle, right=10pt] at (box.north west) {Orthogonalität, Orthonormalität $U_m(x), U_n(x) \in L^2(D)$};
 \end{tikzpicture}
 
 %------------ Vollständiges Funktionensystem ---------------
@@ -356,7 +356,7 @@ $
     $R_l(r) = A r^l+ Br^{-(l+1)}$ Radiallösung\\
     $Y_{lm}= \frac{1}{\sqrt{2\pi}} \sqrt{\frac{2l+1}{2}\frac{(l-m)!}{(l+m)!}} P_{lm}(\cos\vartheta) e^{jm\varphi} $ Kugelflächenfunktionen\\
     $P_{lm}(x) = (-\sqrt{1-x^2})^m \frac{\upd^m P_l(x)}{\upd x^m} $ zugeord. Legendrefunktionen\\
-    $P_l(x) = P_{l0}(x)= \frac{1}{2^l l!} \frac{\upd^l (x^2-1)^l}{\upd x^l}$ Legendre Polynome
+    $P_l(x) = P_{l0}(x)= \frac{1}{2^l l!} \frac{\upd^l (x^2-1)^l}{\upd x^l}$ Legendre-Polynome
   \end{minipage}
 };
 %------------ Separation, Laplace, Kugelkoordinaten ---------------------
@@ -453,7 +453,7 @@ $\leistungsdichte{V} = \efeld[v]\cdot \elstromdichte[v]$, für dünne Leiter: $P
 \node[magstattitle, right=10pt] at (box.north west) {Eichtransformation};
 \end{tikzpicture}
 
-%------------ Loesung in Coulomb Eichung ---------------
+%------------ Loesung in Coulomb-Eichung ---------------
 \begin{tikzpicture}
 \node [magstatbox] (box){%
   \begin{minipage}{0.3\textwidth}
@@ -461,8 +461,8 @@ $\leistungsdichte{V} = \efeld[v]\cdot \elstromdichte[v]$, für dünne Leiter: $P
     $\magvekpot[v](\ortsvektor[v]) = \frac{\mu}{4\uppi} \oint\limits_{\text{Stromweg}} \frac{I}{\abs{\ortsvektor[v]-\ortsvektor[vs]}} \upd \vec{s}\,'$ (Stromfaden)\\
   \end{minipage}
 };
-%------------ Loesung in Coulomb Eichung Heading---------------------
-\node[magstattitle, right=10pt] at (box.north west) {Lösung in Coulomb Eichung};
+%------------ Loesung in Coulomb-Eichung Heading---------------------
+\node[magstattitle, right=10pt] at (box.north west) {Lösung in Coulomb-Eichung};
 \end{tikzpicture}
 
 %------------ Biot-Savart ---------------
